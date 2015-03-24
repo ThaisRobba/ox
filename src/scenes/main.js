@@ -19,10 +19,6 @@ ox.Entity('counter', {
 
   draw: function(dt) {
     ox.fillRect(this.x, this.y, 100, 100);
-//    for (var i = 0; i < 40; i++) {
-//      ox.fillRect(this.x + i*5, this.y, 1, 100);
-//    }
-
   },
 
   update: function(dt) {

@@ -10,7 +10,6 @@ ox.calculateDeltaTime = function() {
 };
 
 ox.gameLoop = function() {
-
   ox.calculateDeltaTime();
 
   if (ox.refreshZ) {
@@ -48,6 +47,6 @@ window.onload = function() {
   ox.canvas = document.getElementById('canvas');
   ox.ctx = ox.canvas.getContext('2d');
   ox.calculateDeltaTime();
-  ox.setScene('main');
+  ox.setScene('loading');
   ox.gameLoop();
 }
