@@ -32,11 +32,12 @@ ox.Scene('loading', {
     ox.ctx.scale(-1, 1);
     ox.ctx.fillRect(-ox.canvas.width / 2, 0, ox.canvas.width / 2 * ox.imagesToLoad / this.full, 1);
     ox.ctx.restore();
-    ox.ctx.font = '180% Inconsolata';
-    ox.ctx.fillText('loading...', ox.canvas.width / 2 - 68, ox.canvas.height / 2 - 10);
+    ox.ctx.fillStyle = "white";
+    ox.ctx.font = '200% sans-serif';
+    ox.ctx.fillText('loading...', ox.canvas.width / 2 - 68, ox.canvas.height / 2 + 10);
   },
 
   update: function () {
-    if (ox.imagesToLoad === 0) ox.setScene('main');
+//    if (ox.imagesToLoad === 0) ox.setScene('main');
   }
 });

@@ -43,6 +43,7 @@ ox.updateLoop = function(dt) {
     if (entity.update) entity.update(dt);
   }
 }
+
 window.onload = function() {
   ox.canvas = document.getElementById('canvas');
   ox.ctx = ox.canvas.getContext('2d');
