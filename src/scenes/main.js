@@ -26,7 +26,6 @@ ox.Entity('counter', {
   update: function(dt) {
     this.x += Math.floor(dt * 100);
     if (this.x > ox.canvas.width) this.x = -200;
-
   }
 });
 

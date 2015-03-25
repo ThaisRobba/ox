@@ -1,15 +1,15 @@
 ox.gameSpeed = 1;
 ox.dt = 0;
-ox.step = 1/60;
+ox.step = 1 / 60;
 ox.lastDelta = ox.now = new Date;
 
-ox.calculateDeltaTime = function() {
+ox.calculateDeltaTime = function () {
   ox.lastDelta = ox.now;
   ox.now = new Date;
   ox.dt += Math.min(1, (ox.now - ox.lastDelta) / 1000) * ox.gameSpeed;
 };
 
-ox.gameLoop = function() {
+ox.gameLoop = function () {
   ox.calculateDeltaTime();
 
   if (ox.refreshZ) {
@@ -24,30 +24,30 @@ ox.gameLoop = function() {
   ox.drawLoop(ox.dt);
 
   requestAnimationFrame(ox.gameLoop);
-}
+};
 
-ox.drawLoop = function(dt) {
+ox.drawLoop = function (dt) {
   var time = new Date;
   ox.ctx.clearRect(0, 0, ox.canvas.width, ox.canvas.height);
   if (ox.currentScene.draw) ox.currentScene.draw(dt);
-  for (var i = 0, len = ox.currentEntities.length; i < len; i++){
+  for (var i = 0, len = ox.currentEntities.length; i < len; i++) {
     var entity = ox.currentEntities[i];
     if (entity.draw) entity.draw(dt);
   }
-}
+};
 
-ox.updateLoop = function(dt) {
-    if (ox.currentScene.update) ox.currentScene.update(dt);
-  for (var i = 0, len = ox.currentEntities.length; i < len; i++){
+ox.updateLoop = function (dt) {
+  if (ox.currentScene.update) ox.currentScene.update(dt);
+  for (var i = 0, len = ox.currentEntities.length; i < len; i++) {
     var entity = ox.currentEntities[i];
     if (entity.update) entity.update(dt);
   }
-}
+};
 
-window.onload = function() {
+window.onload = function () {
   ox.canvas = document.getElementById('canvas');
   ox.ctx = ox.canvas.getContext('2d');
   ox.calculateDeltaTime();
   ox.setScene('loading');
   ox.gameLoop();
-}
+};

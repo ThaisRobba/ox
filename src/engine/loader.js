@@ -14,14 +14,14 @@ ox.load = function (obj) {
 
   if (obj.data) {
     this.assetsToLoad += obj.data.length;
-    for (var j = 0; j < obj.data.length; j++){
+    for (var j = 0; j < obj.data.length; j++) {
       this.loadData(obj.data[j]);
     }
   }
 
   if (obj.audio) {
     this.assetsToLoad += obj.audio.length;
-    for (var k = 0; k < obj.audio.length; k++){
+    for (var k = 0; k < obj.audio.length; k++) {
       this.loadAudio(obj.audio[k]);
     }
   }
@@ -51,7 +51,7 @@ ox.loadData = function (file) {
 };
 
 ox.Scene('loading', {
-  init: function() {
+  init: function () {
     ox.load(ox._assets);
     this.barLength = ox.assetsToLoad;
   },
@@ -73,6 +73,6 @@ ox.Scene('loading', {
   },
 
   update: function () {
-      if (ox.assetsToLoad === 0) ox.setScene('main');
+    if (ox.assetsToLoad === 0) ox.setScene('main');
   }
 });
