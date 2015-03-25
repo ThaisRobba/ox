@@ -19,6 +19,7 @@ ox.Entity('counter', {
 
   draw: function(dt) {
     ox.fillRect(this.x, this.y, 100, 100);
+    ox.ctx.drawImage(ox.images.pony, -this.x,-this.x/10);
   },
 
   update: function(dt) {
