@@ -15,6 +15,7 @@ ox.Entity('counter', {
     this.x = this.x || 0;
     this.y = this.y || 0;
     this.value = this.value || 0;
+    ox.ctx.fillStyle = "lightblue";
   },
 
   draw: function(dt) {
@@ -24,7 +25,7 @@ ox.Entity('counter', {
 
   update: function(dt) {
     this.x += Math.floor(dt * 100);
-    if (this.x > ox.canvas.width) this.x = -200
+    if (this.x > ox.canvas.width) this.x = -200;
 
   }
 });

@@ -1,4 +1,4 @@
-ox.Load({
+ox.Assets({
   images: [
     'pony',
     'pony2',

@@ -5,5 +5,5 @@ ox.Scene = function (name, obj) {
 };
 ox.setScene = function (name) {
   this.currentScene = this.scenes[name];
-  this.currentScene.init();
+  if (this.currentScene.init) this.currentScene.init();
 };
