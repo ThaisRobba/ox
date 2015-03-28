@@ -1,12 +1,9 @@
 module.exports = {
   current: null,
-  create: function (name, obj) {
-    if (this[name]) throw new Error("Cannot create scene: '" + name + "', it already exists!");
-    this[name] = obj;
-  },
+  list: require('../scenes.js'),
   set: function (name) {
-    if (!this[name]) throw new Error("Scene '" + name + "' does not exist!");
-    this.current = this[name];
+    if (!this.list[name]) throw new Error("Scene '" + name + "' does not exist!");
+    this.current = this.list[name];
     if (this.current.init) this.current.init();
   }
 }

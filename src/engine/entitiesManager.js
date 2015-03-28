@@ -1,21 +1,19 @@
 module.exports = {
   current: [],
+  list: require('../entities.js'),
   dirtyZ: false,
-  create: function (name, obj) {
-    this[name] = obj;
-    this[name].z = 0 || obj.z;
-    this[name].lastZ = 0;
-  },
   spawn: function (name, options) {
+    if (!this.list[name]) throw new Error("Entity '" + name + "' does not exist and cannot be spawned.");
     var obj = options || {};
-    for (var key in this[name]) {
-      obj[key] = this[name][key];
+    for (var key in this.list[name]) {
+      obj[key] = this.list[name][key];
     }
     this.current.push(obj);
-    obj.init();
+    if (obj.init) obj.init();
     return obj;
   },
   checkZ: function (entity) {
+    if (typeof entity.z === 'undefined') entity.z = 0;
     if (entity.z !== entity.lastZ) {
       entity.lastZ = entity.z;
       this.dirtyZ = true;

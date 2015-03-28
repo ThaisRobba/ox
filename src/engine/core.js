@@ -16,31 +16,6 @@ window.ox = {
   preloader: require('./loader.js')
 };
 
-ox.entities.create('counter', {
-  init: function () {
-    this.value = 100;
-  },
-  update: function () {
-    this.value++;
-  }
-})
-ox.scenes.create('main', {
-  init: function () {
-    var test = ox.entities.spawn('counter');
-    this.x = 0;
-  },
-  draw: function () {
-    ox.ctx.fillRect(this.x, 0, 100, 100);
-    ox.ctx.drawImage(ox.images.pony, 0, 0)
-  },
-  update: function (dt) {
-    this.x += 40 * dt;
-    if (this.x > 300) this.x -= 400;
-  }
-});
-
-var main = require('../main.js');
-
 window.onload = function () {
   ox.canvas = document.getElementById('canvas');
   ox.ctx = ox.canvas.getContext('2d');
