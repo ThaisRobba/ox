@@ -1,5 +1,6 @@
 var entities = require('./entitiesManager.js'),
-  scenes = require('./scenesManager.js');
+  scenes = require('./scenesManager.js'),
+  context = require('./canvas.js').context;
 
 module.exports = {
   speed: 1,
@@ -31,7 +32,7 @@ module.exports = {
 
   draw: function (dt) {
     var time = new Date;
-    ox.ctx.clearRect(0, 0, ox.canvas.width, ox.canvas.height);
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     if (scenes.current.draw) scenes.current.draw(dt);
     for (var i = 0, len = entities.current.length; i < len; i++) {
       var entity = entities.current[i];
