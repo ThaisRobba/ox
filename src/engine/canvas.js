@@ -1,5 +1,5 @@
 var images = require('./loader.js').images
-console.log(images)
+
 module.exports = {
   context: document.getElementById('canvas').getContext('2d'),
 
@@ -33,25 +33,18 @@ module.exports = {
     return this;
   },
 
-  drawImage: function (src, x, y, frameWidth, frameHeight, currentFrame) {
-    var frameWidth = frameWidth || images[src].width,
-      frameHeight = frameHeight || images[src].height,
-      currentFrame = currentFrame || 0;
+  drawImage: function (src, x, y, width, height, frame) {
+    if (typeof width === 'number') {
+      this.context.drawImage(
+        images[src],
+        width * frame[0],
+        height * frame[1],
+        width, height, x, y, width, height);
+    } else {
+      this.context.drawImage(images[src], x, y);
+    }
 
-    this.context.drawImage(images[src], frameWidth * currentFrame, 0, frameWidth, frameHeight, x, y, frameWidth, frameHeight);
     return this;
-  },
-
-  sprite: function (name, x, y, w, h) {
-    //Pegar height e width da imagem
-    //Dividir Width pela w passada
-    //Dividir height pela h passada
-    //Pensa que o resultado é um grid
-    //    console.log(name.height)
-    var w = w || name.width,
-      h = h || name.height;
-
-    this.context.drawImage(name, 0, 0, w, h, x, y, w, h);
   },
 
   save: function () {
