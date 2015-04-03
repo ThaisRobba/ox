@@ -11,7 +11,7 @@ module.exports = {
       .fillRect(80, 80, 100, 200)
       .strokeStyle('grey')
       .strokeRect(80, 80, 100, 200)
-      .drawImage('pony', this.x, 0, 64, 79);
+      .drawImage('pony', this.x, 0);
 
     ox.canvas.shape('rectangle', {
       x: 80,
