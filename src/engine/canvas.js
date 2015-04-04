@@ -1,4 +1,4 @@
-var images = require('./loader.js').images
+var images = require('./loader').images
 
 module.exports = {
   context: document.getElementById('canvas').getContext('2d'),

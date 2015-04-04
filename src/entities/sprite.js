@@ -13,7 +13,9 @@ module.exports = {
       this.frameRate = this.frameRate || 5;
       this.frames = [[0, 0]];
 
-      var x = y = 0;
+      var x = 0,
+          y = 0;
+
       for (var i = 1; i < this.srcHeight / this.height * this.srcWidth / this.width; i++) {
         if (x < this.srcWidth / this.width - 1) {
           x++;
@@ -45,4 +47,4 @@ module.exports = {
       this.counter = 0;
     }
   }
-}
+};

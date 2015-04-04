@@ -1,6 +1,6 @@
 module.exports = {
   current: [],
-  list: require('../entities.js'),
+  list: require('../entities'),
   dirtyZ: false,
   spawn: function (name, options) {
     if (!this.list[name]) throw new Error("Entity '" + name + "' does not exist and cannot be spawned.");

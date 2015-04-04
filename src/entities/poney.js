@@ -21,6 +21,6 @@ module.exports = {
       fill: "yellow",
       stroke: "black",
       lineWidth: 2,
-    })
+    });
   }
 };

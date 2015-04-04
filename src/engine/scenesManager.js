@@ -1,6 +1,6 @@
 module.exports = {
   current: null,
-  list: require('../scenes.js'),
+  list: require('../scenes'),
   set: function (name) {
     if (!this.list[name]) throw new Error("Scene '" + name + "' does not exist!");
     this.current = this.list[name];

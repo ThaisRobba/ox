@@ -1,6 +1,6 @@
-var entities = require('./entitiesManager.js'),
-  scenes = require('./scenesManager.js'),
-  context = require('./canvas.js').context;
+var entities = require('./entitiesManager'),
+  scenes = require('./scenesManager'),
+  context = require('./canvas').context;
 
 module.exports = {
   speed: 1,

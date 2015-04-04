@@ -1,15 +1,15 @@
 window.onload = function () {
   this.ox = {
-    canvas: require('./canvas.js'),
-    images: require('./loader.js').images,
-    audio: require('./loader.js').audio,
-    data: require('./loader.js').data,
-    mouse: require('./mouse.js'),
-    scenes: require('./scenesManager.js'),
-    entities: require('./entitiesManager.js'),
-    save: require('./localStorage.js'),
-    loop: require('./gameLoop.js'),
-    preloader: require('./loader.js')
+    canvas: require('./canvas'),
+    images: require('./loader').images,
+    audio: require('./loader').audio,
+    data: require('./loader').data,
+    mouse: require('./mouse'),
+    scenes: require('./scenesManager'),
+    entities: require('./entitiesManager'),
+    save: require('./localStorage'),
+    loop: require('./gameLoop'),
+    preloader: require('./loader')
   };
   ox.loop.calculateDelta();
   ox.scenes.set('loading');
