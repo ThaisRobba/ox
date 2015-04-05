@@ -66,7 +66,8 @@ module.exports = {
   },
 
   multipleAnimations: function () {
-    if ((this.isFinished && !this.loop)) return this.stop();
+    if (!this.isPlaying) return;
+    if ((this.isFinished && !this.loop)) return this.finished();
 
     if (this.arrayCounter === this.animationArray.length - 1) {
       this.isFinished = true;
@@ -79,7 +80,8 @@ module.exports = {
   },
 
   singleAnimation: function () {
-    if ((this.isFinished && !this.loop)) return this.stop();
+    if (!this.isPlaying) return;
+    if ((this.isFinished && !this.loop)) return this.finished();
 
     if (this.frame === (this.frames.length - 1)) {
       this.isFinished = true;
@@ -90,19 +92,32 @@ module.exports = {
   },
 
   play: function (animation, options) {
+    if (!options) var options = {};
+    if (options.onStart) options.onStart();
+    if (options.onFinish) this.onFinish = options.onFinish;
+
+    if (!this.update) this.update = this.updateAnimation;
+
     this.isFinished = false;
     this.isPlaying = true;
+    if (typeof options.loop === 'boolean') this.loop = options.loop;
+
     if (this.animations) {
       if (animation) this.animation = animation;
       this.animationArray = this.animations[this.animation];
       this.arrayCounter = 0;
       this.frame = this.animationArray[this.arrayCounter];
-      if (typeof options.loop === 'boolean') this.loop = options.loop;
+
     }
+  },
+
+  finished: function () {
+    this.stop();
+    if (this.onFinish) this.onFinish();
+    this.update = null;
   },
 
   stop: function () {
     this.isPlaying = false;
-    return;
   },
 };

@@ -29,7 +29,13 @@ module.exports = {
       width: 44
     });
     this.sprite2.play('spin', {
-      loop: false
+      loop: false,
+      onFinish: function () {
+        console.log("animation finished!");
+      },
+      onStart: function () {
+        console.log("animation started!");
+      }
     });
 
   },
