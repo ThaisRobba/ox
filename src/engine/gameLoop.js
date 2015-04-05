@@ -1,7 +1,10 @@
 var entities = require('./entitiesManager'),
   scenes = require('./scenesManager'),
   context = require('./canvas').context;
-
+var camera = {
+  x: 1,
+  y: 20
+}
 module.exports = {
   speed: 1,
   dt: 0,
@@ -33,11 +36,17 @@ module.exports = {
   draw: function (dt) {
     var time = new Date;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    //    ox.canvas.save();
+    //    camera.y += .5;
+    //    if (camera.y > 30) camera.y = -10;
+    //    ox.canvas.translate(camera.x, camera.y);
+
     if (scenes.current.draw) scenes.current.draw(dt);
     for (var i = 0, len = entities.current.length; i < len; i++) {
       var entity = entities.current[i];
       if (entity.draw) entity.draw(dt);
     }
+    //    ox.canvas.restore();
   },
 
   update: function (dt) {
