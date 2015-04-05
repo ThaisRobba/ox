@@ -95,7 +95,6 @@ module.exports = {
     if (!options) var options = {};
     if (options.onStart) options.onStart();
     if (options.onFinish) this.onFinish = options.onFinish;
-
     if (!this.update) this.update = this.updateAnimation;
 
     this.isFinished = false;
