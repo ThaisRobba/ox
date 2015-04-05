@@ -1,5 +1,7 @@
 # ox
-Ox is a tiny, opinionated-yet-open 2D game framework for the web. It offers a rigid structure that facilitates development.
+Ox is a tiny, opinionated-yet-open 2D game framework for the web. It offers a rigid structure that facilitates development. Its goals are to be easy to learn, modular and lightweight.
+
+It weights at ~3kbytes gzipped and minified, meaning it can be easily used for competitions like 13kJS and for mobile games. Don't let this fool you - Ox is powerful!
 
 ### Features
 

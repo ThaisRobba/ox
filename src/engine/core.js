@@ -4,6 +4,7 @@ window.onload = function () {
     images: require('./loader').images,
     audio: require('./loader').audio,
     data: require('./loader').data,
+    input: require('./input'),
     mouse: require('./mouse'),
     scenes: require('./scenesManager'),
     entities: require('./entitiesManager'),
@@ -17,9 +18,12 @@ window.onload = function () {
     },
     spawn: function (name, options) {
       this.list = this.entities.list;
-      this.entities.spawn(name, options);
+      return this.entities.spawn(name, options);
     }
   };
+  this.onkeydown = ox.input.keyDown.bind(ox.input);
+  this.onkeyup = ox.input.keyUp.bind(ox.input);
+
   ox.loop.calculateDelta();
   ox.scenes.set('loading');
   ox.loop.run();

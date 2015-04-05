@@ -44,9 +44,7 @@ module.exports = {
     if (scenes.current.draw) scenes.current.draw(dt);
     for (var i = 0, len = entities.current.length; i < len; i++) {
       var entity = entities.current[i];
-      if (entity.isAlive) {
-        if (entity.draw) entity.draw(dt);
-      }
+      if (entity.isAlive && entity.draw) entity.draw(dt);
     }
     //    ox.canvas.restore();
   },
@@ -55,9 +53,7 @@ module.exports = {
     if (scenes.current.update) scenes.current.update(dt);
     for (var i = 0, len = entities.current.length; i < len; i++) {
       var entity = entities.current[i];
-      if (entity.isAlive) {
-        if (entity.update) entity.update(dt);
-      }
+      if (entity.isAlive && entity.update) entity.update(dt);
     }
   }
 }

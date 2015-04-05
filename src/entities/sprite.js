@@ -13,14 +13,6 @@ module.exports = {
     }
   },
 
-  draw: function () {
-    ox.canvas.drawSprite(this.src, this.x, this.y);
-  },
-
-  drawAnimation: function () {
-    ox.canvas.drawSprite(this.src, this.x, this.y, this.width, this.height, this.frames[this.frame]);
-  },
-
   initAnimation: function () {
     this.isPlaying = true;
     this.isFinished = false;
@@ -37,6 +29,16 @@ module.exports = {
       this.frame = 0;
     }
   },
+
+  draw: function () {
+    ox.canvas.drawSprite(this.src, this.x, this.y);
+  },
+
+  drawAnimation: function () {
+    ox.canvas.drawSprite(this.src, this.x, this.y, this.width, this.height, this.frames[this.frame]);
+  },
+
+
 
   calculateFrames: function () {
     var x = y = 0;
@@ -56,6 +58,7 @@ module.exports = {
   updateAnimation: function () {
     if (!this.isPlaying) return;
     if (this.isFinished) return this.finished();
+
     this.counter += 1;
     if (this.counter > this.frameRate) {
       this.counter = 0;
@@ -86,7 +89,6 @@ module.exports = {
 
   finished: function () {
     this.stop();
-    this.update = null;
     if (this.onFinish) this.onFinish();
   },
 
@@ -103,7 +105,6 @@ module.exports = {
       this.arrayCounter = 0;
       this.frame = this.animationArray[this.arrayCounter];
     }
-
     this.isFinished = false;
     this.isPlaying = true;
   },
