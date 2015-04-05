@@ -14,7 +14,11 @@ module.exports = {
   },
 
   draw: function () {
-    ox.canvas.drawImage(this.src, this.x, this.y);
+    ox.canvas.drawSprite(this.src, this.x, this.y);
+  },
+
+  drawAnimation: function () {
+    ox.canvas.drawSprite(this.src, this.x, this.y, this.width, this.height, this.frames[this.frame]);
   },
 
   initAnimation: function () {
@@ -47,10 +51,6 @@ module.exports = {
       }
       this.frames.push([x, y]);
     }
-  },
-
-  drawAnimation: function () {
-    ox.canvas.drawImage(this.src, this.x, this.y, this.width, this.height, this.frames[this.frame]);
   },
 
   updateAnimation: function () {

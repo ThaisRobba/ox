@@ -1,6 +1,6 @@
 var entities = require('./entitiesManager'),
   scenes = require('./scenesManager'),
-  context = require('./canvas').context;
+  context = require('./canvas');
 var camera = {
   x: 1,
   y: 20
