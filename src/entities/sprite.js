@@ -67,7 +67,7 @@ module.exports = {
 
   multipleAnimations: function () {
     if (!this.isPlaying) return;
-    if ((this.isFinished && !this.loop)) return this.finished();
+    if (this.isFinished && !this.loop) return this.finished();
 
     if (this.arrayCounter === this.animationArray.length - 1) {
       this.isFinished = true;
@@ -81,7 +81,7 @@ module.exports = {
 
   singleAnimation: function () {
     if (!this.isPlaying) return;
-    if ((this.isFinished && !this.loop)) return this.finished();
+    if (this.isFinished && !this.loop) return this.finished();
 
     if (this.frame === (this.frames.length - 1)) {
       this.isFinished = true;
