@@ -5,19 +5,19 @@ module.exports = {
   },
 
   draw: function () {
-    ox.canvas.fillStyle("black")
-      .fillRect(0, 0, ox.canvas.width, ox.canvas.height)
-      .fillStyle("rgb(46, 238, 245)")
-      .fillRect(ox.canvas.width / 4, 2 * ox.canvas.height / 3, ox.canvas.width / 2, 1)
-      .fillStyle("grey")
-      .save()
-      .translate(ox.canvas.width / 4, 2 * ox.canvas.height / 3)
-      .scale(-1, 1)
-      .fillRect(-ox.canvas.width / 2, 0, ox.canvas.width / 2 * ox.preloader.assetsToLoad / this.barLength, 1)
-      .restore()
-      .fillStyle("white")
-      .font('200% sans-serif')
-      .fillText('loading...', ox.canvas.width / 2 - 68, ox.canvas.height / 2 + 10);
+    ox.canvas.fillStyle = "black"
+    ox.canvas.fillRect(0, 0, ox.canvas.width, ox.canvas.height)
+    ox.canvas.fillStyle = "rgb(46, 238, 245)"
+    ox.canvas.fillRect(ox.canvas.width / 4, 2 * ox.canvas.height / 3, ox.canvas.width / 2, 1)
+    ox.canvas.fillStyle = "grey"
+    ox.canvas.save()
+    ox.canvas.translate(ox.canvas.width / 4, 2 * ox.canvas.height / 3)
+    ox.canvas.scale(-1, 1)
+    ox.canvas.fillRect(-ox.canvas.width / 2, 0, ox.canvas.width / 2 * ox.preloader.assetsToLoad / this.barLength, 1)
+    ox.canvas.restore()
+    ox.canvas.fillStyle = "white"
+    ox.canvas.font = '200% sans-serif'
+    ox.canvas.fillText('loading...', ox.canvas.width / 2 - 68, ox.canvas.height / 2 + 10);
   },
 
   update: function () {
