@@ -6,7 +6,6 @@ module.exports = {
     this.height = this.height || this.srcHeight;
     this.x = this.x || 0;
     this.y = this.y || 0;
-
     if (this.animation) {
       this.initAnimation();
       this.update = this.updateAnimation;
@@ -23,7 +22,7 @@ module.exports = {
     this.isFinished = false;
     if (typeof this.loop !== 'boolean') this.loop = true;
     this.counter = 0;
-    this.frameRate = this.frameRate || 2;
+    this.frameRate = 60 / this.frameRate || 1;
     this.calculateFrames();
 
     if (this.animations) {
@@ -33,14 +32,12 @@ module.exports = {
     } else {
       this.frame = 0;
     }
-
   },
 
   calculateFrames: function () {
-    var x = 0,
-      y = 0;
-
+    var x = y = 0;
     this.frames = [[0, 0]];
+
     for (var i = 1; i < this.srcHeight / this.height * this.srcWidth / this.width; i++) {
       if (x < this.srcWidth / this.width - 1) {
         x++;
@@ -57,6 +54,8 @@ module.exports = {
   },
 
   updateAnimation: function () {
+    if (!this.isPlaying) return;
+    if (this.isFinished) return this.finished();
     this.counter += 1;
     if (this.counter > this.frameRate) {
       this.counter = 0;
@@ -66,11 +65,8 @@ module.exports = {
   },
 
   multipleAnimations: function () {
-    if (!this.isPlaying) return;
-    if (this.isFinished && !this.loop) return this.finished();
-
     if (this.arrayCounter === this.animationArray.length - 1) {
-      this.isFinished = true;
+      if (!this.loop) this.isFinished = true;
       this.frame = this.animationArray[0]
       this.arrayCounter = 0;
     } else {
@@ -80,31 +76,11 @@ module.exports = {
   },
 
   singleAnimation: function () {
-    if (!this.isPlaying) return;
-    if (this.isFinished && !this.loop) return this.finished();
-
     if (this.frame === (this.frames.length - 1)) {
-      this.isFinished = true;
+      if (!this.loop) this.isFinished = true;
       this.frame = 0
     } else {
       this.frame += 1;
-    }
-  },
-
-  play: function (animation, options) {
-    if (!options) var options = {};
-    if (options.onStart) options.onStart();
-    if (options.onFinish) this.onFinish = options.onFinish;
-    if (typeof options.loop === 'boolean') this.loop = options.loop;
-    if (!this.update) this.update = this.updateAnimation;
-    this.isFinished = false;
-    this.isPlaying = true;
-
-    if (this.animations) {
-      if (animation) this.animation = animation;
-      this.animationArray = this.animations[this.animation];
-      this.arrayCounter = 0;
-      this.frame = this.animationArray[this.arrayCounter];
     }
   },
 
@@ -114,7 +90,25 @@ module.exports = {
     if (this.onFinish) this.onFinish();
   },
 
+  play: function (animation, options) {
+    if (options) {
+      for (var key in options) {
+        this[key] = options[key]
+      }
+    }
+
+    if (this.animations) {
+      if (animation) this.animation = animation;
+      this.animationArray = this.animations[this.animation];
+      this.arrayCounter = 0;
+      this.frame = this.animationArray[this.arrayCounter];
+    }
+
+    this.isFinished = false;
+    this.isPlaying = true;
+  },
+
   stop: function () {
     this.isPlaying = false;
-  },
+  }
 };

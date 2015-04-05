@@ -13,8 +13,12 @@ window.onload = function () {
     sprite: function (src, options) {
       var obj = options || {};
       obj.src = src;
-      return require('./entitiesManager').spawn('sprite', obj);
+      return this.entities.spawn('sprite', obj);
     },
+    spawn: function (name, options) {
+      this.list = this.entities.list;
+      this.entities.spawn(name, options);
+    }
   };
   ox.loop.calculateDelta();
   ox.scenes.set('loading');

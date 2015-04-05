@@ -8,8 +8,14 @@ module.exports = {
     for (var key in this.list[name]) {
       obj[key] = this.list[name][key];
     }
+    obj.destroy = this.destroy.bind(obj);
+    obj.revive = this.revive.bind(obj);
+    obj.isAlive = true;
     this.current.push(obj);
-    if (obj.init) obj.init();
+    if (obj.init) {
+      obj.init();
+    };
+    obj.isReady = true
     return obj;
   },
   checkZ: function (entity) {
@@ -23,5 +29,11 @@ module.exports = {
     this.current.sort(function (a, b) {
       return a.z - b.z;
     });
+  },
+  destroy: function () {
+    this.isAlive = false;
+  },
+  revive: function () {
+    this.isAlive = true;
   }
 };
