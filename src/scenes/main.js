@@ -4,26 +4,26 @@ module.exports = {
     this.x = 0;
     this.poney = ox.entities.spawn('poney');
 
-    this.sprite3 = ox.sprite('coin2', {
-      x: 20,
-      animation: 'spin',
-      height: 40,
-      width: 44
-    });
-
-    this.sprite = ox.sprite('coin2', {
-      animation: 'spin2',
-      loop: false,
-      height: 40,
-      width: 44
-    });
+    //    this.sprite3 = ox.sprite('coin2', {
+    //      x: 20,
+    //      animation: 'spin',
+    //      height: 40,
+    //      width: 44
+    //    });
+    //
+    //    this.sprite = ox.sprite('coin2', {
+    //      animation: 'spin2',
+    //      loop: false,
+    //      height: 40,
+    //      width: 44
+    //    });
     this.sprite2 = ox.sprite('coin2', {
       x: 80,
       y: 1,
       animation: 'spin',
       animations: {
         spin: [0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 8],
-        idle: [4]
+        idle: [8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4]
       },
       height: 40,
       width: 44
@@ -31,7 +31,10 @@ module.exports = {
     this.sprite2.play('spin', {
       loop: false,
       onFinish: function () {
-        console.log("animation finished!");
+        this.x = 10;
+        this.play();
+        console.log("Finished!", this)
+
       },
       onStart: function () {
         console.log("animation started!");
@@ -39,6 +42,10 @@ module.exports = {
     });
 
   },
+  test: function () {
+
+  },
+
   update: function (dt) {
 
     this.x += 10

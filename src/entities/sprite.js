@@ -61,7 +61,7 @@ module.exports = {
     if (this.counter > this.frameRate) {
       this.counter = 0;
       if (this.animations) this.multipleAnimations();
-      else this.singleAnimation()
+      else this.singleAnimation();
     }
   },
 
@@ -95,25 +95,23 @@ module.exports = {
     if (!options) var options = {};
     if (options.onStart) options.onStart();
     if (options.onFinish) this.onFinish = options.onFinish;
+    if (typeof options.loop === 'boolean') this.loop = options.loop;
     if (!this.update) this.update = this.updateAnimation;
-
     this.isFinished = false;
     this.isPlaying = true;
-    if (typeof options.loop === 'boolean') this.loop = options.loop;
 
     if (this.animations) {
       if (animation) this.animation = animation;
       this.animationArray = this.animations[this.animation];
       this.arrayCounter = 0;
       this.frame = this.animationArray[this.arrayCounter];
-
     }
   },
 
   finished: function () {
     this.stop();
-    if (this.onFinish) this.onFinish();
     this.update = null;
+    if (this.onFinish) this.onFinish();
   },
 
   stop: function () {
