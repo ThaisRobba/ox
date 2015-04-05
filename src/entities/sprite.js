@@ -4,6 +4,8 @@ module.exports = {
     this.width = this.width || this.srcWidth;
     this.srcHeight = ox.images[this.src].height;
     this.height = this.height || this.srcHeight;
+    this.x = this.x || 0;
+    this.y = this.y || 0;
 
     if (this.animation) {
       this.initAnimation();
@@ -17,7 +19,13 @@ module.exports = {
   },
 
   initAnimation: function () {
-    this.loop = this.loop || true;
+    this.isPlaying = true;
+    this.isFinished = false;
+    if (typeof this.loop !== 'boolean') this.loop = true;
+    this.counter = 0;
+    this.frameRate = this.frameRate || 2;
+    this.calculateFrames();
+
     if (this.animations) {
       this.animationArray = this.animations[this.animation]
       this.arrayCounter = 0;
@@ -25,9 +33,7 @@ module.exports = {
     } else {
       this.frame = 0;
     }
-    this.counter = 0;
-    this.frameRate = this.frameRate || 5;
-    this.calculateFrames();
+
   },
 
   calculateFrames: function () {
@@ -53,36 +59,50 @@ module.exports = {
   updateAnimation: function () {
     this.counter += 1;
     if (this.counter > this.frameRate) {
-      if (this.animations) {
-        if (this.arrayCounter === this.animationArray.length - 1) {
-          if (!this.loop) {
-            this.update = null;
-            return;
-          }
-          this.frame = this.animationArray[0]
-          this.arrayCounter = 0;
-        } else {
-          this.arrayCounter++;
-          this.frame = this.animationArray[this.arrayCounter]
-        }
-      } else {
-        if (this.frame === (this.frames.length - 1)) {
-          if (!this.loop) {
-            this.update = null;
-            return;
-          }
-          this.frame = 0
-        } else {
-          this.frame += 1;
-        }
-      }
       this.counter = 0;
+      if (this.animations) this.multipleAnimations();
+      else this.singleAnimation()
     }
   },
 
-  play: function (animation, loop) {
-    this.animationArray = this.animations[animation];
-    this.arrayCounter = 0;
-    //    this.loop = loop || this.loop;
-  }
+  multipleAnimations: function () {
+    if ((this.isFinished && !this.loop)) return this.stop();
+
+    if (this.arrayCounter === this.animationArray.length - 1) {
+      this.isFinished = true;
+      this.frame = this.animationArray[0]
+      this.arrayCounter = 0;
+    } else {
+      this.arrayCounter++;
+      this.frame = this.animationArray[this.arrayCounter]
+    }
+  },
+
+  singleAnimation: function () {
+    if ((this.isFinished && !this.loop)) return this.stop();
+
+    if (this.frame === (this.frames.length - 1)) {
+      this.isFinished = true;
+      this.frame = 0
+    } else {
+      this.frame += 1;
+    }
+  },
+
+  play: function (animation, options) {
+    this.isFinished = false;
+    this.isPlaying = true;
+    if (this.animations) {
+      if (animation) this.animation = animation;
+      this.animationArray = this.animations[this.animation];
+      this.arrayCounter = 0;
+      this.frame = this.animationArray[this.arrayCounter];
+      if (typeof options.loop === 'boolean') this.loop = options.loop;
+    }
+  },
+
+  stop: function () {
+    this.isPlaying = false;
+    return;
+  },
 };

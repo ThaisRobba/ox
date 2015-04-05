@@ -9,7 +9,12 @@ window.onload = function () {
     entities: require('./entitiesManager'),
     save: require('./localStorage'),
     loop: require('./gameLoop'),
-    preloader: require('./loader')
+    preloader: require('./loader'),
+    sprite: function (src, options) {
+      var obj = options || {};
+      obj.src = src;
+      return require('./entitiesManager').spawn('sprite', obj);
+    },
   };
   ox.loop.calculateDelta();
   ox.scenes.set('loading');
