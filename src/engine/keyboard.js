@@ -3,6 +3,8 @@ module.exports = {
   isPressed: {},
 
   keyDown: function (e) {
+    if (e.keyCode === 32 || (e.keyCode >= 37 && e.keyCode <= 40))
+      e.preventDefault();
     if (scene.current.keyDown) scene.current.keyDown(this.keys[e.keyCode]);
     this.keyPress(e);
   },

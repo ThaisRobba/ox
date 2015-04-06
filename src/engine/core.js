@@ -23,12 +23,6 @@ window.onload = function () {
     }
   };
 
-  this.onkeydown = ox.keyboard.keyDown.bind(ox.keyboard);
-  this.onkeyup = ox.keyboard.keyUp.bind(ox.keyboard);
-  ox.canvas.onmousemove = ox.mouse.onMove.bind(ox.mouse);
-  ox.canvas.onmousedown = ox.mouse.onDown.bind(ox.mouse);
-  ox.canvas.onmouseup = ox.mouse.onUp.bind(ox.mouse);
-
   ox.loop.calculateDelta();
   ox.scenes.set('loading');
   ox.loop.run();
