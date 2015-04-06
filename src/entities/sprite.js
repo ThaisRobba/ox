@@ -31,14 +31,12 @@ module.exports = {
   },
 
   draw: function () {
-    ox.canvas.drawSprite(this.src, this.x, this.y);
+    ox.context.drawSprite(this.src, this.x, this.y);
   },
 
   drawAnimation: function () {
-    ox.canvas.drawSprite(this.src, this.x, this.y, this.width, this.height, this.frames[this.frame]);
+    ox.context.drawSprite(this.src, this.x, this.y, this.width, this.height, this.frames[this.frame]);
   },
-
-
 
   calculateFrames: function () {
     var x = y = 0;

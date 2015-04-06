@@ -1,16 +1,18 @@
 var scene = require('./scenesManager');
-
 module.exports = {
   isPressed: {},
+
   keyDown: function (e) {
     if (scene.current.keyDown) scene.current.keyDown(this.keys[e.keyCode]);
     this.keyPress(e);
   },
+
   keyPress: function (e) {
     if (this.isPressed[e.keyCode]) return;
     if (scene.current.keyPress) scene.current.keyPress(this.keys[e.keyCode]);
     this.isPressed[e.keyCode] = true;
   },
+
   keyUp: function (e) {
     if (scene.current.keyUp) scene.current.keyUp(this.keys[e.keyCode]);
     this.isPressed[e.keyCode] = false;

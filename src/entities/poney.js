@@ -5,11 +5,11 @@ module.exports = {
 
   draw: function () {
     this.x++;
-    ox.canvas.fillStyle = 'blue'
-    ox.canvas.fillRect(80, 80, 100, 200)
-    ox.canvas.strokeStyle = 'grey'
-    ox.canvas.strokeRect(80, 80, 100, 200)
-    ox.canvas.drawSprite('pony', this.x, 0);
-    ox.canvas.drawSprite('pony', this.x + 10, 0);
+    ox.context.fillStyle = 'blue'
+    ox.context.fillRect(80, 80, 100, 200)
+    ox.context.strokeStyle = 'grey'
+    ox.context.strokeRect(80, 80, 100, 200)
+    ox.context.drawSprite('pony', this.x, 0);
+    ox.context.drawSprite('pony', this.x + 10, 0);
   }
 };
