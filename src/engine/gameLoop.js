@@ -1,4 +1,4 @@
-var entities = require('./entitiesManager'),
+var entities = require('./componentsManager'),
   scenes = require('./scenesManager'),
   context = require('./canvas');
 var camera = {

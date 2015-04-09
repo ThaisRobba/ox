@@ -8,18 +8,18 @@ window.onload = function () {
     keyboard: require('./keyboard'),
     mouse: require('./mouse'),
     scenes: require('./scenesManager'),
-    entities: require('./entitiesManager'),
+    components: require('./componentsManager'),
     save: require('./localStorage'),
     loop: require('./gameLoop'),
     preloader: require('./loader'),
     sprite: function (src, options) {
       var obj = options || {};
       obj.src = src;
-      return this.entities.spawn('sprite', obj);
+      return this.components.spawn('sprite', obj);
     },
     spawn: function (name, options) {
-      this.list = this.entities.list;
-      return this.entities.spawn(name, options);
+      this.list = this.components.list;
+      return this.components.spawn(name, options);
     }
   };
 

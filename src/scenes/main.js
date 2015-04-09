@@ -17,15 +17,6 @@ module.exports = {
       loop: false
     });
 
-    this.sprite3 = ox.sprite('coin', {
-      animation: 'spin',
-      height: 40,
-      width: 44
-    });
-
-  },
-  testing: function () {
-    console.log("I was called when the animation ended.")
   },
 
   update: function (dt) {
