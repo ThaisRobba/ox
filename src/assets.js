@@ -7,7 +7,8 @@ module.exports = {
     'pony5',
     'coin',
     'coinTwisted',
-    'coin2'],
+    'coin2'
+    ],
 
   data: ['example'],
 

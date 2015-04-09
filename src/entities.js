@@ -1,6 +1,6 @@
 module.exports = {
-  sprite: require('./entities/sprite.js'),
-  counter: require('./entities/counter.js'),
-  counter2: require('./entities/counter2.js'),
-  poney: require('./entities/poney.js')
+  sprite: require('./entities/sprite'),
+  counter: require('./entities/counter'),
+  counter2: require('./entities/counter2'),
+  poney: require('./entities/poney')
 };
