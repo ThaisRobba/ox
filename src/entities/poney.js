@@ -9,7 +9,7 @@ module.exports = {
     ox.context.fillRect(80, 80, 100, 200)
     ox.context.strokeStyle = 'grey'
     ox.context.strokeRect(80, 80, 100, 200)
-    ox.context.drawSprite('pony', this.x, 0);
-    ox.context.drawSprite('pony', this.x + 10, 0);
+    ox.context.drawSprite('pony.png', this.x, 0);
+    ox.context.drawSprite('pony.png', this.x + 10, 0);
   }
 };

@@ -1,8 +1,6 @@
 module.exports = {
   current: [],
-  list: require('../components/*js', {
-    hash: true
-  }),
+  list: require('../entities.js'),
   dirtyZ: false,
   spawn: function (name, options) {
     if (!this.list[name]) throw new Error("Component '" + name + "' does not exist and cannot be spawned.");

@@ -4,15 +4,19 @@ module.exports = {
   audio: {},
   assetsToLoad: 0,
 
-  loadImage: function (name) {
+  loadImage: function (path) {
+    var name = path.slice(9, path.length);
     this.images[name] = new Image();
     this.images[name].onload = this.assetsToLoad--;
-    this.images[name].src = "images/" + name + ".png";
+    this.images[name].src = path;
   },
 
-  loadData: function (file) {
-    var self = this,
+  loadData: function (path) {
+    console.log(path)
+    var file = path.slice(7, path.length - 5),
+      self = this,
       xhr = new XMLHttpRequest;
+
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         self.data[file] = JSON.parse(xhr.responseText);
@@ -20,32 +24,23 @@ module.exports = {
       }
     };
 
-    xhr.open("GET", "data/" + file + ".json");
+    xhr.open("GET", path);
     xhr.send();
   },
 
   loadAudio: function (name) {},
 
-  load: function (obj) {
-    if (obj.images) {
-      this.assetsToLoad += obj.images.length;
-      for (var i = 0; i < obj.images.length; i++) {
-        this.loadImage(obj.images[i]);
-      }
-    }
+  load: function (list) {
+    this.assetsToLoad += list.length;
 
-    if (obj.data) {
-      this.assetsToLoad += obj.data.length;
-      for (var j = 0; j < obj.data.length; j++) {
-        this.loadData(obj.data[j]);
-      }
-    }
-
-    if (obj.audio) {
-      this.assetsToLoad += obj.audio.length;
-      for (var k = 0; k < obj.audio.length; k++) {
-        this.loadAudio(obj.audio[k]);
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].indexOf('./images') > -1) {
+        this.loadImage(list[i]);
+      } else if (list[i].indexOf('./data') > -1) {
+        this.loadData(list[i]);
+      } else if (list[i].indexOf('./audio') > -1) {
+        this.loadAudio(list[i]);
       }
     }
   }
-}
+};

@@ -1,8 +1,8 @@
 module.exports = {
   init: function () {
     this.poney = ox.spawn('poney');
-    this.staticPony = ox.sprite('pony');
-    this.sprite2 = ox.sprite('coin2', {
+    this.staticPony = ox.sprite('pony.png');
+    this.sprite2 = ox.sprite('coin2.png', {
       animation: 'spin',
       animations: {
         spin: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -14,7 +14,12 @@ module.exports = {
     });
 
     this.sprite2.play('spin', {
-      loop: false
+      loop: true
+    });
+
+    this.sprite3 = ox.sprite('pony.png', {
+      x: 100,
+      y: 100
     });
 
   },
@@ -22,6 +27,8 @@ module.exports = {
   update: function (dt) {
     this.sprite2.x = ox.mouse.x;
     this.sprite2.y = ox.mouse.y;
+
+    ox.camera.set(ox.mouse.x, ox.mouse.y);
   },
 
   keyDown: function (key) {

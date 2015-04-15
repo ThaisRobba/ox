@@ -1,16 +1,10 @@
-module.exports = {
-  images: [
-    'pony',
-    'pony2',
-    'pony3',
-    'pony4',
-    'pony5',
-    'coin',
-    'coinTwisted',
-    'coin2'
-    ],
-
-  data: ['example'],
-
-  audio: []
-}
+module.exports = [
+  './images/coin.png',
+  './images/coin2.png',
+  './images/coinTwisted.png',
+  './images/pony.png',
+  './images/pony2.png',
+  './images/pony3.png',
+  './images/pony4.png',
+  './data/example.json'
+];

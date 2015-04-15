@@ -1,5 +1,6 @@
 module.exports = {
   init: function () {
+    this.isVisible = true;
     this.srcWidth = ox.images[this.src].width;
     this.width = this.width || this.srcWidth;
     this.srcHeight = ox.images[this.src].height;
