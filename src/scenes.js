@@ -1,4 +1,4 @@
-module.exports = {
-  loading: require('./scenes/loading.js'),
-  main: require('./scenes/main.js')
-};
+module.exports = [
+  './src/scenes/loading.js',
+  './src/scenes/main.js'
+];
