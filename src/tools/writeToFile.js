@@ -5,27 +5,32 @@ module.exports = function (file, type, list) {
 
   if (Array.isArray(type)) {
     string = "module.exports = [\n";
-  } else {
-    string = "module.exports = {\n";
-  }
-
-  for (var i = 0; i < list.length; i++) {
-    string += "  '" + list[i];
-    if (list[i] !== list[list.length - 1]) {
-      string += "',\n";
-    } else {
-      if (Array.isArray(type)) {
-        string += "'\n];";
+    for (var i = 0; i < list.length; i++) {
+      string += "  '" + list[i];
+      if (list[i] !== list[list.length - 1]) {
+        string += "',\n";
       } else {
-        string += "'\n};";
+        string += "'\n];";
+      }
+    }
+  } else {
+
+    string = "module.exports = {\n";
+    for (var i = 0; i < list.length; i++) {
+      var name = list[i].slice(type, list[i].indexOf('.js'));
+      string += "  " + name + ": require('./" + file + "/" + name + ".js')";
+      if (list[i] !== list[list.length - 1]) {
+        string += ",\n";
+      } else {
+        string += "\n};";
       }
     }
   }
+  if (string == fs.readFileSync('./src/' + file + '.js', 'utf-8')) return;
 
-  fs.writeFile("./src/" + file, string, function (err) {
+  fs.writeFile("./src/" + file + ".js", string, function (err) {
     if (err) {
       return console.log(err);
     }
-    console.log(file + " was updated!");
   });
 };

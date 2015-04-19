@@ -1,5 +1,6 @@
 {
   "x": 100,
-"y": 200,
-"playerName": "John"
+  "y": 200,
+  "playerName": "John",
+  "turnip": [1, 2, 3, 4, 5]
 }

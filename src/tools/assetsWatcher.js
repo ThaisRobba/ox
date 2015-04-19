@@ -9,4 +9,4 @@ var fs = require('fs'),
 fileCheck('assets.js');
 traverse('./images', ['png', 'jpg', 'gif'], list);
 traverse('./data', ['json'], list);
-writeToFile('assets.js', [], list);
+writeToFile('assets', [], list);

@@ -8,4 +8,4 @@ var fs = require('fs'),
 
 fileCheck('entities.js');
 traverse('./src/entities', ['js'], list);
-writeToFile('entities.js', [], list);
+writeToFile('entities', 15, list);

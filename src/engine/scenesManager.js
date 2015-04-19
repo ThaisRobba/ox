@@ -6,4 +6,4 @@ module.exports = {
     this.current = this.list[name];
     if (this.current.init) this.current.init();
   }
-}
+};

@@ -1,39 +1,28 @@
+var current = [];
+
 module.exports = {
-  current: [],
-  list: require('../entities.js'),
-  dirtyZ: false,
-  spawn: function (name, options) {
-    if (!this.list[name]) throw new Error("Component '" + name + "' does not exist and cannot be spawned.");
-    var obj = options || {};
-    for (var key in this.list[name]) {
-      obj[key] = this.list[name][key];
+    current: current,
+    library: require('../entities.js'),
+    spawn: function (name, options) {
+        if (!this.library[name]) throw new Error("Entity '" + name + "' does not exist and cannot be spawned.");
+        var obj = options || {};
+        for (var key in this.library[name]) {
+            obj[key] = this.library[name][key];
+        }
+        obj.remove = this.remove.bind(obj);
+        obj.id = this.current.length;
+        this.current.push(obj);
+        if (obj.init) obj.init();
+        //        if (obj.update) PUSH TO UPDATE LIST AND SAVE TIME :D
+        obj.isReady = true;
+        return obj;
+    },
+
+    remove: function () {
+        var id = this.id;
+        current.splice(this.id, 1);
+        for (var i = 0; i < current.length; i++) {
+            if (current[i].id > id) current[i].id--;
+        }
     }
-    obj.destroy = this.destroy.bind(obj);
-    obj.revive = this.revive.bind(obj);
-    obj.isAlive = true;
-    this.current.push(obj);
-    if (obj.init) {
-      obj.init();
-    };
-    obj.isReady = true
-    return obj;
-  },
-  checkZ: function (entity) {
-    if (typeof entity.z === 'undefined') entity.z = 0;
-    if (entity.z !== entity.lastZ) {
-      entity.lastZ = entity.z;
-      this.dirtyZ = true;
-    }
-  },
-  sortByZ: function () {
-    this.current.sort(function (a, b) {
-      return a.z - b.z;
-    });
-  },
-  destroy: function () {
-    this.isAlive = false;
-  },
-  revive: function () {
-    this.isAlive = true;
-  }
 };

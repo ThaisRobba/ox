@@ -6,4 +6,4 @@ module.exports = function (file) {
   } catch (err) {
     fs.writeFile("./src/" + file);
   }
-}
+};

@@ -8,4 +8,4 @@ var fs = require('fs'),
 
 fileCheck('scenes.js');
 traverse('./src/scenes', ['js'], list);
-writeToFile('scenes.js', [], list);
+writeToFile('scenes', 13, list);

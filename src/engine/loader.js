@@ -12,7 +12,6 @@ module.exports = {
   },
 
   loadData: function (path) {
-    console.log(path)
     var file = path.slice(7, path.length - 5),
       self = this,
       xhr = new XMLHttpRequest;
