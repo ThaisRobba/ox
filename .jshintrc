@@ -1,5 +1,15 @@
 {
-    "undef": false,
-    "unused": false,
-    "supernew": true
+    "supernew": true,
+    "curly": false,
+    "globals": {
+        "module": true,
+        "require": true,
+        "requestAnimationFrame": true,
+        "ox": true,
+        "XMLHttpRequest": true,
+        "Image": true,
+        "window": true,
+        "document": true,
+        "localStorage": true
+    }
 }

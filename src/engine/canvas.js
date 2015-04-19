@@ -1,19 +1,20 @@
 var images = require('./loader').images,
-  keyboard = require('./keyboard'),
-  mouse = require('./mouse');
+    keyboard = require('./keyboard'),
+    mouse = require('./mouse');
 
-var context = document.getElementById('canvas').getContext('2d');
+var canvas = document.getElementById('canvas'),
+    context = canvas.getContext('2d');
 
 context.drawSprite = function (src, x, y, width, height, frame) {
-  if (typeof width === 'number') {
-    context.drawImage(
-      images[src],
-      width * frame[0],
-      height * frame[1],
-      width, height, x, y, width, height);
-  } else {
-    context.drawImage(images[src], x, y);
-  }
+    if (typeof width === 'number') {
+        context.drawImage(
+            images[src],
+            width * frame[0],
+            height * frame[1],
+            width, height, x, y, width, height);
+    } else {
+        context.drawImage(images[src], x, y);
+    }
 };
 
 canvas.tabIndex = 1000;

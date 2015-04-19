@@ -30,18 +30,16 @@ module.exports = {
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
         //    camera.start();
         if (scenes.current.draw) scenes.current.draw();
-        for (var i = 0, len = entities.current.length; i < len; i++) {
-            var entity = entities.current[i];
-            if (entity.draw) entity.draw();
+        for (var i = 0, len = entities.toDraw.length; i < len; i++) {
+            entities.current[entities.toDraw[i]].draw();
         }
         //    context.restore();
     },
 
     update: function (dt) {
         if (scenes.current.update) scenes.current.update(dt);
-        for (var i = 0, len = entities.current.length; i < len; i++) {
-            var entity = entities.current[i];
-            if (entity.update) entity.update(dt);
+        for (var i = 0, len = entities.toUpdate.length; i < len; i++) {
+            entities.current[entities.toUpdate[i]].update(dt);
         }
     }
-}
+};

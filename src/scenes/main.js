@@ -12,34 +12,30 @@ module.exports = {
             width: 44,
         });
 
-        this.sprite2.play('spin', {
-            loop: true
+        this.sprite3 = ox.sprite('pony.png', {
+            x: 0,
+            y: 100
         });
 
-        this.sprite3 = ox.sprite('pony.png', {
+        this.sprite4 = ox.sprite('pony.png', {
             x: 100,
             y: 100
         });
-        this.coin = ox.sprite('coin.png', {
-            animation: 'spin',
-            animations: {
-                spin: [0, 1, 2, 3, 4, 5],
-                idle: [4]
-            },
-            frameRate: 10,
-            width: 44,
-            height: 40
+
+        this.sprite4 = ox.sprite('pony.png', {
+            x: 200,
+            y: 100
         });
 
-        ox.spawn('player');
+        //        ox.spawn('player');
 
     },
 
     update: function (dt) {
-        this.sprite2.x = ox.mouse.x;
-        this.sprite2.y = ox.mouse.y;
+        //        this.sprite2.x = ox.mouse.x;
+        //        this.sprite2.y = ox.mouse.y;
 
-        ox.camera.set(ox.mouse.x, ox.mouse.y);
+        //        ox.camera.set(ox.mouse.x, ox.mouse.y);
     },
 
     keyDown: function (key) {

@@ -18,10 +18,7 @@ window.onload = function () {
             obj.src = src;
             return this.entities.spawn('sprite', obj);
         },
-        spawn: function (name, options) {
-            this.library = this.entities.library;
-            return this.entities.spawn(name, options);
-        }
+        spawn: require('./entitiesManager').spawn
     };
 
     ox.loop.calculateDelta();
