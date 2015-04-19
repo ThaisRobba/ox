@@ -17,12 +17,10 @@ var list = require('../entities'),
         return obj;
     },
     disable = function () {
-        console.log(this.id);
-        toDraw.splice(toDraw.indexOf(this.id), 1);
-        toUpdate.splice(toUpdate.indexOf(this.id), 1);
+        if (toDraw.indexOf(this.id) > 0) toDraw.splice(toDraw.indexOf(this.id), 1);
+        if (toUpdate.indexOf(this.id) > 0) toUpdate.splice(toUpdate.indexOf(this.id), 1);
     },
     enable = function () {
-        console.log(this.id);
         if (this.update) toUpdate.push(this.id);
         if (this.draw) toDraw.push(this.id);
     };

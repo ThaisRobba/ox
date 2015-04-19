@@ -2,8 +2,8 @@ var images = require('./loader').images,
     keyboard = require('./keyboard'),
     mouse = require('./mouse');
 
-var canvas = document.getElementById('canvas'),
-    context = canvas.getContext('2d');
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
 
 context.drawSprite = function (src, x, y, width, height, frame) {
     if (typeof width === 'number') {
@@ -26,5 +26,8 @@ canvas.onmousedown = mouse.onDown.bind(mouse);
 canvas.onmouseup = mouse.onUp.bind(mouse);
 canvas.height = 2000;
 canvas.style.cursor = "none";
+canvas.oncontextmenu = function () {
+    return false;
+};
 
 module.exports = context;

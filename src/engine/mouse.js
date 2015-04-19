@@ -15,6 +15,7 @@ module.exports = {
         this.isDown = false;
     },
     onDown: function (e) {
+
         if (scene.current.mouseDown) scene.current.mouseDown(this.buttons[e.button]);
         this.isDown = true;
     },

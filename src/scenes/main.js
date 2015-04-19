@@ -50,11 +50,11 @@ module.exports = {
         console.log("keyUp: " + key);
     },
 
-    mouseDown: function (e) {
-        console.log("Clicked at: " + ox.mouse.x + ", " + ox.mouse.y, e);
+    mouseDown: function (button) {
+        console.log("Clicked at: " + ox.mouse.x + ", " + ox.mouse.y + " with the " + button + " button.");
     },
 
-    mouseUp: function (e) {
-        console.log("Released at: " + ox.mouse.x + ", " + ox.mouse.y);
+    mouseUp: function (button) {
+        console.log("Released at: " + ox.mouse.x + ", " + ox.mouse.y + " with the " + button + " button.");
     }
 };
