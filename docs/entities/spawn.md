@@ -22,7 +22,7 @@ Each entity you spawn is unique - they have their own id and their own data. Cha
 
 {% highlight javascript %}
 var tinyTimer = ox.spawn('timer', {
-    target: 2,
+    target: 2000,
     callback: function() {
         console.log("Two seconds have elapsed!");
     }
