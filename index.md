@@ -1,5 +1,6 @@
 ---
 layout: home
+title: the tiny 2d framework for the web
 ---
 
 #Entities
