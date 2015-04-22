@@ -1,31 +1,30 @@
 module.exports = {
-  init: function () {
-    this.value = 0;
-    this.isFinished = false;
-  },
+    init: function () {
+        this.value = 0;
+        this.target = this.target || 1000;
+        this.callback = this.callback || function () {};
+    },
 
-  update: function (dt) {
-    if (!this.isFinished && !this.isPaused) {
-      this.value += dt;
-      if (this.value >= this.goal) {
-        this.isFinished = true;
-        this.func();
-        if (this.loop) this.restart();
-      }
+    update: function (dt) {
+        this.value += dt * 1000;
+
+        if (this.value >= this.target) {
+            if (this.context) {
+                this.callback.call(this.context, this.value);
+            } else {
+                this.callback(this.value);
+            }
+
+            if (this.loop) {
+                this.value = 0;
+            } else {
+                this.disable();
+            }
+        }
+    },
+
+    restart: function () {
+        this.value = 0;
+        this.enable();
     }
-  },
-
-  restart: function () {
-    this.value = 0;
-    this.isFinished = false;
-  },
-
-  pause: function () {
-    this.isPaused = true;
-  },
-
-  resume: function () {
-    this.isPaused = false;
-  },
-
 };
