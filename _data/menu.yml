@@ -1,0 +1,55 @@
+- title: Home
+  url: /
+
+- title: Entities
+  url: /docs/entities/overview.html
+  sub:
+    - title: Overview
+      url: /docs/entities/overview.html
+    - title: Spawning
+      url: /docs/entities/spawn.html
+    - title: Creating
+      url: /docs/entities/creating.html
+    - title: Properties
+      url: /docs/entities/properties.html
+      sub:
+        - title: '.id'
+          url: /docs/entities/id.html
+        - title: '.type'
+          url: /docs/entities/type.html
+    - title: Methods
+      url: /docs/entities/methods.html
+      sub:
+        - title: '.disable()'
+          url: /docs/entities/disable.html
+        - title: '.draw()'
+          url: /docs/entities/draw.html
+        - title: '.enable()'
+          url: /docs/entities/enable.html
+        - title: '.init()'
+          url: /docs/entities/init.html
+        - title: '.update(dt)'
+          url: /docs/entities/update.html
+
+- title: Scenes
+  url: /docs/entities.html
+  sub:
+    - title: Basics
+      url: /docs/entities/basic.html
+    - title: Setting
+      url: /docs/entities/spawn.html
+    - title: Creating
+      url: /docs/entities/basic.html
+    - title: Interface
+      url: /docs/entities/spawn.html
+- title: Assets
+  url: /docs/entities.html
+  sub:
+    - title: Basics
+      url: /docs/entities/basic.html
+    - title: Adding/Removing
+      url: /docs/entities/spawn.html
+    - title: Basics
+      url: /docs/entities/basic.html
+    - title: Spawn
+      url: /docs/entities/spawn.html

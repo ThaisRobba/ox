@@ -1,0 +1,46 @@
+<!--
+<div id="sidebar">
+    <ul>
+        {% for p in site.data.menu %}
+        <li>
+            <a {% if p.url==page.url %}class="active" {% endif %} href="{{ p.url }}">
+        {{ p.title }}
+      </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+-->
+
+<div class="sidebar">
+    <ul>
+        {% for p in site.data.menu %} {% if p.sub != null %}
+        <li class="dropdown">
+            <a href="{{ site.url }}{{ p.url }}">{{ p.title }}</a>
+            <ul>
+
+                {% for subcategory in p.sub %}
+
+                        {% if subcategory.sub != null%}
+                        <ul class="dropdown-menu">{{ subcategory.title }}
+                            {% for child in subcategory.sub %}
+                            <a href="{{ site.url }}{{ child.url }}">
+                                <li class="sub">{{ child.title }}</li>
+                            </a>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                           <a href="{{site.url}}{{subcategory.url}}"><li class="sub">{{ subcategory.title }}</li></a>
+                        {% endif %}
+
+                    </a>
+                {% endfor %}
+            </ul>
+            {% else %}
+
+            <li>
+                <a href="{{ site.url }}{{ p.url }}">{{ p.title }}</a> {% endif %}
+            </li>
+            {% endfor %}
+    </ul>
+</div>
