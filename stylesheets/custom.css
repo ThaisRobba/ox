@@ -3,11 +3,10 @@
 }
 
 .sidebar {
-    height: 10000px;
     overflow: hidden;
     float: left;
     margin: 32px 32px 0 32px;
-    min-width: 112px;
+    min-width: 20%;
 }
 
 .sidebar ul,
@@ -44,10 +43,6 @@
     border-left: 2px solid #6b4cac;
     background-color: #eff4f7;
     padding: 0 6px 0 11px;
-}
-
-.main-content table {
-    width: auto !important;
 }
 
 .main-content li {
