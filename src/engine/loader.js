@@ -22,12 +22,15 @@ module.exports = {
                 self.assetsToLoad--;
             }
         };
-
         xhr.open("GET", path);
         xhr.send();
     },
 
-    loadAudio: function (name) {},
+    loadAudio: function (path) {
+        var name = path.slice(8, path.length);
+        this.audio[name] = new Audio(path);
+        this.audio[name].oncanplaythrough = this.assetsToLoad--;
+    },
 
     load: function (list) {
         this.assetsToLoad += list.length;

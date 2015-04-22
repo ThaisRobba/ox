@@ -2,15 +2,16 @@ var list = require('../entities'),
     current = [],
     toUpdate = [],
     toDraw = [],
-    spawn = function (name, options) {
-        if (!list[name]) throw new Error("Entity [" + name + "] does not exist and cannot be spawned.");
+    spawn = function (type, options) {
+        if (!list[type]) throw new Error("Entity [" + name + "] does not exist and cannot be spawned.");
         var obj = options || {};
-        for (var key in list[name]) {
-            obj[key] = list[name][key];
+        for (var key in list[type]) {
+            obj[key] = list[type][key];
         }
         obj.disable = disable.bind(obj);
         obj.enable = enable.bind(obj);
         obj.id = current.length;
+        obj.type = type;
         current.push(obj);
         if (obj.init) obj.init();
         obj.enable();

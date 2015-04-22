@@ -10,6 +10,7 @@
         "Image": true,
         "window": true,
         "document": true,
-        "localStorage": true
+        "localStorage": true,
+        "Audio": true
     }
 }

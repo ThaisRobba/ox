@@ -27,8 +27,15 @@ module.exports = {
             y: 100
         });
 
-        //        ox.spawn('player');
-
+        ox.spawn('timer', {
+            target: 2000,
+            callback: function (value) {
+                console.log(value);
+                this.sprite4.y += -10;
+                if (this.sprite4.y < 0) this.sprite4.y = 200;
+            },
+            context: this
+        });
     },
 
     update: function (dt) {

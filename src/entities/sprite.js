@@ -7,6 +7,7 @@ module.exports = {
         this.height = this.height || this.srcHeight;
         this.x = this.x || 0;
         this.y = this.y || 0;
+
         if (this.animation) {
             this.initAnimation();
             this.update = this.updateAnimation;
