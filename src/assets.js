@@ -3,6 +3,6 @@ module.exports = [
   './images/coin2.png',
   './images/coinTwisted.png',
   './images/pony.png',
-  './images/teste.png',
-  './data/example.json'
+  './data/example.json',
+  './audio/the_heavy.mp3'
 ];
