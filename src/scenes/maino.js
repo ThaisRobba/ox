@@ -1,15 +1,5 @@
 module.exports = {
     init: function () {
-        this.sprite2 = ox.sprite('coin2.png', {
-            animation: 'spin',
-            animations: {
-                spin: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-                idle: [8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4]
-            },
-            height: 40,
-            frameRate: 1,
-            width: 44
-        });
 
         this.sprite3 = ox.sprite('pony.png', {
             x: 0,
@@ -27,12 +17,12 @@ module.exports = {
         });
 
         ox.spawn('timer', {
-            target: 1000,
+            target: 2000,
             callback: function (value) {
                 console.log(value);
                 this.sprite4.y += -10;
                 if (this.sprite4.y < 0) this.sprite4.y = 200;
-                //                ox.scenes.set('maino');
+                ox.scenes.set('main');
             },
             context: this
         });

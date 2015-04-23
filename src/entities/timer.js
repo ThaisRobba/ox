@@ -6,8 +6,7 @@ module.exports = {
     },
 
     update: function (dt) {
-        this.value += dt * 1000;
-
+        this.value = Math.round(this.value + dt * 1000);
         if (this.value >= this.target) {
             if (this.context) {
                 this.callback.call(this.context, this.value);

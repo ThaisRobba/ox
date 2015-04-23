@@ -3,7 +3,7 @@ var list = require('../entities'),
     toUpdate = [],
     toDraw = [],
     spawn = function (type, options) {
-        if (!list[type]) throw new Error("Entity [" + name + "] does not exist and cannot be spawned.");
+        if (!list[type]) throw new Error("Entity [" + type + "] does not exist and cannot be spawned.");
         var obj = options || {};
         for (var key in list[type]) {
             obj[key] = list[type][key];
@@ -24,6 +24,11 @@ var list = require('../entities'),
     enable = function () {
         if (this.update) toUpdate.push(this.id);
         if (this.draw) toDraw.push(this.id);
+    },
+    clear = function () {
+        current.splice(0, current.length);
+        toUpdate.splice(0, current.length);
+        toDraw.splice(0, current.length);
     };
 
 module.exports = {
@@ -31,5 +36,6 @@ module.exports = {
     list: list,
     toDraw: toDraw,
     toUpdate: toUpdate,
-    spawn: spawn
+    spawn: spawn,
+    clear: clear
 };

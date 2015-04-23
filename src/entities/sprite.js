@@ -20,7 +20,7 @@ module.exports = {
         this.isFinished = false;
         if (typeof this.loop !== 'boolean') this.loop = true;
         this.counter = 0;
-        this.frameRate = 60 / this.frameRate || 1;
+        this.frameRate = this.frameRate || 30;
         this.calculateFrames();
 
         if (this.animations) {
@@ -56,15 +56,18 @@ module.exports = {
         }
     },
 
-    updateAnimation: function () {
+    updateAnimation: function (dt) {
         if (!this.isPlaying) return;
         if (this.isFinished) return this.finished();
 
-        this.counter += 1;
-        if (this.counter > this.frameRate) {
+        this.counter += dt * 1000;
+        if (this.counter > 1000 / this.frameRate) {
             this.counter = 0;
-            if (this.animations) this.multipleAnimations();
-            else this.singleAnimation();
+            if (this.animations) {
+                this.multipleAnimations();
+            } else {
+                this.singleAnimation();
+            }
         }
     },
 

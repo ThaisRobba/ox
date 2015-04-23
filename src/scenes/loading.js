@@ -1,6 +1,6 @@
 module.exports = {
     init: function () {
-        ox.preloader.load(require('../assets.js'));
+        ox.preloader.load(require('../assets'));
         this.barLength = ox.preloader.assetsToLoad;
     },
 
