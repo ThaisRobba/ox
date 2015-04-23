@@ -1,5 +1,5 @@
 module.exports = {
     init: function () {
-        //        ox.scenes.set('main');
+        ox.scenes.set('main');
     }
 };

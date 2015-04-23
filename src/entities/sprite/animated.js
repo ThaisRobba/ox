@@ -2,15 +2,15 @@ var drawSprite = require('./drawSprite'),
     init = function () {
         this.isPlaying = true;
         this.isFinished = false;
+        if (typeof this.loop !== 'boolean') this.loop = true;
+        this.counter = 0;
+        this.frameRate = this.frameRate || 30;
         this.pause = pause.bind(this);
         this.play = play.bind(this);
         this.finished = finished.bind(this);
         this.update = update.bind(this);
         this.draw = draw.bind(this);
-        if (typeof this.loop !== 'boolean') this.loop = true;
-        this.counter = 0;
-        this.frameRate = this.frameRate || 30;
-        this.calculateFrames();
+        calculateFrames.call(this);
 
         if (this.animations) {
             this.animationArray = this.animations[this.animation];
@@ -20,9 +20,27 @@ var drawSprite = require('./drawSprite'),
             this.frame = 0;
         }
     },
+
+    calculateFrames = function () {
+        var x = 0,
+            y = 0;
+        this.frames = [[0, 0]];
+
+        for (var i = 1; i < this.sourceHeight / this.height * this.sourceWidth / this.width; i++) {
+            if (x < this.sourceWidth / this.width - 1) {
+                x++;
+            } else if (y < this.sourceHeight / this.height - 1) {
+                y++;
+                x = 0;
+            }
+            this.frames.push([x, y]);
+        }
+    },
+
     draw = function () {
         drawSprite(this.source, this.x, this.y, this.width, this.height, this.frames[this.frame]);
     },
+
     update = function (dt) {
         if (!this.isPlaying) return;
         if (this.isFinished) return this.finished();
@@ -37,6 +55,7 @@ var drawSprite = require('./drawSprite'),
             }
         }
     },
+
     multipleAnimations = function () {
         if (this.arrayCounter === this.animationArray.length - 1) {
             if (!this.loop) this.isFinished = true;
@@ -56,6 +75,7 @@ var drawSprite = require('./drawSprite'),
             this.frame += 1;
         }
     },
+
     finished = function () {
         this.pause();
         if (this.callback) this.callback();
