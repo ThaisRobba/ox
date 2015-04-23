@@ -29,12 +29,10 @@ module.exports = {
 
     draw: function () {
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-        if (scenes.isChanging) return;
         //    camera.start();
         if (scenes.current.draw) scenes.current.draw();
         for (var i = 0, len = toDraw.length; i < len; i++) {
             if (entities.current[toDraw[i]] !== undefined && entities.current[toDraw[i]].draw !== undefined) {
-                if (scenes.isChanging) return;
                 entities.current[toDraw[i]].draw();
             }
         }
@@ -43,11 +41,9 @@ module.exports = {
     },
 
     update: function (dt) {
-        if (scenes.isChanging) return;
         if (scenes.current.update) scenes.current.update(dt);
         for (var i = 0, len = toUpdate.length; i < len; i++) {
             if (entities.current[toUpdate[i]] !== undefined && entities.current[toUpdate[i]].update !== undefined) {
-                if (scenes.isChanging) return;
                 entities.current[toUpdate[i]].update(dt);
             }
         }

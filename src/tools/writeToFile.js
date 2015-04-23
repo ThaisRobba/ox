@@ -18,7 +18,7 @@ module.exports = function (file, type, list) {
         string = "module.exports = {\n";
         for (var i = 0; i < list.length; i++) {
             var name = list[i].slice(type, list[i].indexOf('.js'));
-            string += "  " + name + ": require('./" + file + "/" + name + ".js')";
+            string += "  '" + name + "': require('./" + file + "/" + name + ".js')";
             if (list[i] !== list[list.length - 1]) {
                 string += ",\n";
             } else {

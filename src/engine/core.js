@@ -13,15 +13,9 @@ window.onload = function () {
         save: require('./localStorage'),
         loop: require('./gameLoop'),
         preloader: require('./loader'),
-        sprite: function (src, options) {
-            var obj = options || {};
-            obj.src = src;
-            return this.entities.spawn('sprite', obj);
-        },
         spawn: require('./entitiesManager').spawn
     };
 
-    ox.loop.calculateDelta();
     ox.scenes.set('loading');
     ox.loop.init();
 };

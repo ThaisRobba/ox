@@ -1,6 +1,7 @@
 module.exports = {
     init: function () {
-        this.sprite2 = ox.sprite('coin2.png', {
+        this.sprite2 = ox.spawn('sprite', {
+            source: 'coin2.png',
             animation: 'spin',
             animations: {
                 spin: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -11,17 +12,20 @@ module.exports = {
             width: 44
         });
 
-        this.sprite3 = ox.sprite('pony.png', {
+        this.sprite3 = ox.spawn('sprite', {
+            source: 'pony.png',
             x: 0,
             y: 100
         });
 
-        this.sprite4 = ox.sprite('pony.png', {
+        this.sprite4 = ox.spawn('sprite', {
+            source: 'pony.png',
             x: 100,
             y: 100
         });
 
-        this.sprite4 = ox.sprite('pony.png', {
+        this.sprite4 = ox.spawn('sprite', {
+            source: 'pony.png',
             x: 200,
             y: 100
         });

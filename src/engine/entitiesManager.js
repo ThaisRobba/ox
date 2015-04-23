@@ -27,8 +27,8 @@ var list = require('../entities'),
     },
     clear = function () {
         current.splice(0, current.length);
-        toUpdate.splice(0, current.length);
-        toDraw.splice(0, current.length);
+        toUpdate.splice(0, toUpdate.length);
+        toDraw.splice(0, toDraw.length);
     };
 
 module.exports = {
