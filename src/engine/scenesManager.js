@@ -1,12 +1,12 @@
-var clearEntities = require('./entitiesManager').clear;
+var clearEntities = require('./entitiesManager').clear,
+    list = require('../scenes.js');
 
 module.exports = {
     current: null,
-    list: require('../scenes.js'),
     set: function (name) {
-        if (!this.list[name]) throw new Error("Scene [" + name + "] does not exist!");
+        if (!list[name]) throw new Error("Scene [" + name + "] does not exist!");
         clearEntities();
-        this.current = this.list[name];
+        this.current = list[name];
         this.current.init();
     }
 };
