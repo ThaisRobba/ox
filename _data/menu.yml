@@ -32,16 +32,14 @@
           url: /docs/entities/update.html
 
 - title: Scenes
-  url: /docs/entities.html
+  url: /docs/scenes/overview.html
   sub:
-    - title: Basics
-      url: /docs/entities/basic.html
+    - title: Overview
+      url: /docs/scenes/overview.html
     - title: Setting
-      url: /docs/entities/spawn.html
+      url: /docs/scenes/set.html
     - title: Creating
-      url: /docs/entities/basic.html
-    - title: Interface
-      url: /docs/entities/spawn.html
+      url: /docs/scenes/creating.html
 - title: Assets
   url: /docs/entities.html
   sub:
