@@ -3,7 +3,9 @@ layout: documentation
 title: "Entities overview"
 ---
 
-Think of entities as blocks of data and logic that only run when they are added onto an scene and enabled. They are composable, meaning one entity can call multiple other entities and they can be enabled/disabled as you see fit.
+Think of entities as the actors in a play. Sure, they are just blocks of data and logic but they can be infinitely instanced and they only run when they are enabled and added onto a scene.
+
+They are composable, meaning one entity can call multiple other entities and they can be enabled/disabled as you see fit.
 
 ----
 
@@ -16,13 +18,7 @@ Think of entities as blocks of data and logic that only run when they are added 
 
 - [`ox.spawn(type, options)`]({{site.url}}/docs/entities/spawn.html)
 
-**Properties**
-
-- [`id`]({{site.url}}/docs/entities/id.html), [`type`]({{site.url}}/docs/entities/type.html)
-
-**Methods**
-
-- [`draw`]({{site.url}}/docs/entities/draw.html), [`disable`]({{site.url}}/docs/entities/disable.html), [`enable`]({{site.url}}/docs/entities/enable.html), [`init`]({{site.url}}/docs/entities/init.html), [`update`]({{site.url}}/docs/entities/update.html)
+- [`entity`: object]({{site.url}}/docs/entity/overview.html) returned by the spawn function.
 
 ----
 

@@ -5,17 +5,15 @@ title: "Canvas overview"
 
 Ox by default exposes the canvas API through `ox.context` and the canvas itself through `ox.canvas`, meaning you can enjoy all the niceties that come from it.
 
-
 ----
 
+**Methods**
 
-**ox.context Methods**
+- [`ox.context`]({{site.url}}/docs/canvas/methods.html)
 
-- [`ox.canvas`]({{site.url}}/docs/canvas/canvas.html)
+**Properties**
 
-**ox.canvas Properties**
-
-- [`width`]({{site.url}}/docs/entities/id.html), [`height`]({{site.url}}/docs/entities/type.html)
+- [`width`]({{site.url}}/docs/canvas/properties.html), [`height`]({{site.url}}/docs/canvas/properties.html)
 
 ----
 
@@ -26,7 +24,7 @@ Imagine we want to create the paddle that is going to be used for the game. Our 
 {% highlight javascript %}
 module.exports = {
     init: function() {
-        this.y = ox.canvas.height / 2 //Centers it on y
+        this.y = ox.canvas.height/2; //Vertically center the entity
     },
     
     draw: function() {

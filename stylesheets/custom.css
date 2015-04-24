@@ -48,3 +48,7 @@
 .main-content li {
     list-style: none;
 }
+
+.main-content code {
+    background-color: #E1C9ED;
+}

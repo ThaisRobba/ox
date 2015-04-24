@@ -1,6 +1,38 @@
 - title: Home
   url: /
 
+- title: Setup
+  url: /docs/setup/install.html
+  sub:
+    - title: Installation
+      url: /docs/setup/install.html
+    - title: Configuration
+      url: /docs/setup/configure.html
+    - title: Running
+      url: /docs/setup/running.html
+
+- title: Assets
+  url: /docs/assets/overview.html
+  sub:
+    - title: Overview
+      url: /docs/assets/overview.html
+    - title: Audio
+      url: /docs/assets/audio.html
+    - title: Data
+      url: /docs/assets/data.html
+    - title: Images
+      url: /docs/assets/images.html
+
+- title: Canvas
+  url: /docs/canvas/overview.html
+  sub:
+    - title: Overview
+      url: /docs/canvas/overview.html
+    - title: Methods
+      url: /docs/canvas/methods.html
+    - title: Properties
+      url: /docs/canvas/properties.html
+
 - title: Entities
   url: /docs/entities/overview.html
   sub:
@@ -10,26 +42,6 @@
       url: /docs/entities/spawn.html
     - title: Creating
       url: /docs/entities/creating.html
-    - title: Properties
-      url: /docs/entities/properties.html
-      sub:
-        - title: '.id'
-          url: /docs/entities/id.html
-        - title: '.type'
-          url: /docs/entities/type.html
-    - title: Methods
-      url: /docs/entities/methods.html
-      sub:
-        - title: '.disable()'
-          url: /docs/entities/disable.html
-        - title: '.draw()'
-          url: /docs/entities/draw.html
-        - title: '.enable()'
-          url: /docs/entities/enable.html
-        - title: '.init()'
-          url: /docs/entities/init.html
-        - title: '.update(dt)'
-          url: /docs/entities/update.html
 
 - title: Scenes
   url: /docs/scenes/overview.html
@@ -40,14 +52,29 @@
       url: /docs/scenes/set.html
     - title: Creating
       url: /docs/scenes/creating.html
-- title: Assets
-  url: /docs/entities.html
+
+- title: Entity Object
+  url: /docs/entity/overview.html
   sub:
-    - title: Basics
-      url: /docs/entities/basic.html
-    - title: Adding/Removing
-      url: /docs/entities/spawn.html
-    - title: Basics
-      url: /docs/entities/basic.html
-    - title: Spawn
-      url: /docs/entities/spawn.html
+    - title: Overview
+      url: /docs/entity/overview.html
+    - title: Properties
+      url: #
+      sub:
+        - title: '.id'
+          url: /docs/entity/id.html
+        - title: '.type'
+          url: /docs/entity/type.html
+    - title: Methods
+      url: #
+      sub:
+        - title: '.disable()'
+          url: /docs/entity/disable.html
+        - title: '.draw()'
+          url: /docs/entity/draw.html
+        - title: '.enable()'
+          url: /docs/entity/enable.html
+        - title: '.init()'
+          url: /docs/entity/init.html
+        - title: '.update(dt)'
+          url: /docs/entity/update.html
