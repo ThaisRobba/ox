@@ -25,8 +25,3 @@ module.exports = {
     }
 };
 {% endhighlight %}
-
-
-
-
-

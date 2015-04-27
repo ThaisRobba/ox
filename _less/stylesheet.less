@@ -1,0 +1,30 @@
+@import "button.less";
+@import "content.less";
+@import "footer.less";
+@import "highlight.less";
+@import "header.less";
+@import "navbar.less";
+@link: #1e6bb8;
+@link-hover: @link + #111;
+@body: #606c71;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: @body;
+}
+
+a {
+  color: @link;
+  text-decoration: none;
+}
+
+a:hover {
+  color: @link-hover;
+}

@@ -71,10 +71,26 @@
         - title: '.disable()'
           url: /docs/entity/disable.html
         - title: '.draw()'
-          url: /docs/entity/draw.html
+          url: /docs/hooks/draw.html
         - title: '.enable()'
           url: /docs/entity/enable.html
         - title: '.init()'
-          url: /docs/entity/init.html
+          url: /docs/hooks/init.html
         - title: '.update(dt)'
-          url: /docs/entity/update.html
+          url: /docs/hooks/update.html
+
+
+- title: Scene Object
+  url: /docs/scene/overview.html
+  sub:
+    - title: Overview
+      url: /docs/scene/overview.html
+    - title: Methods
+      url: #
+      sub:
+        - title: '.draw()'
+          url: /docs/hooks/draw.html
+        - title: '.init()'
+          url: /docs/hooks/init.html
+        - title: '.update(dt)'
+          url: /docs/hooks/update.html

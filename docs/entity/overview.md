@@ -13,7 +13,7 @@ Every entity object starts with a few inherited methods and properties. An objec
 
 **Methods**
 
-- [`draw`]({{site.url}}/docs/entity/draw.html), [`disable`]({{site.url}}/docs/entity/disable.html), [`enable`]({{site.url}}/docs/entity/enable.html), [`init`]({{site.url}}/docs/entity/init.html), [`update`]({{site.url}}/docs/entity/update.html)
+- [`draw`]({{site.url}}/docs/hooks/draw.html), [`disable`]({{site.url}}/docs/entity/disable.html), [`enable`]({{site.url}}/docs/entity/enable.html), [`init`]({{site.url}}/docs/hooks/init.html), [`update`]({{site.url}}/docs/hooks/update.html)
 
 ----
 
