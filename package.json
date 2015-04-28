@@ -15,10 +15,10 @@
         "assets": "./src/tools/assetsWatcher.js",
         "entities": "./src/tools/entitiesWatcher.js",
         "scenes": "./src/tools/scenesWatcher.js",
-        "server": "browser-sync start --server --files 'build/ox.js'",
-        "watchify": "watchify src/engine/core.js -o build/ox.js -v -d",
-        "build": "browserify src/engine/core.js -o build/ox.js",
-        "deploy": "npm run assets && npm run scenes && npm run entities && npm run build && uglifyjs ./build/ox.js -mc -o game.js"
+        "server": "browser-sync start --server --files './ox.js'",
+        "watchify": "watchify src/engine/core.js -o ./ox.js -v -d",
+        "build": "browserify src/engine/core.js -o ./ox.js",
+        "deploy": "npm run assets && npm run scenes && npm run entities && npm run build && uglifyjs ./ox.js -mc -o game.js"
     },
     "author": "Otto Robba",
     "license": "MIT",
