@@ -2,7 +2,6 @@ window.onload = function () {
     this.ox = {
         canvas: require('./canvas').canvas,
         context: require('./canvas'),
-        camera: require('./camera'),
         images: require('./loader').images,
         audio: require('./loader').audio,
         data: require('./loader').data,
@@ -15,7 +14,7 @@ window.onload = function () {
         preloader: require('./loader'),
         spawn: require('./entitiesManager').spawn
     };
-
+    ox.mouse.init();
     ox.scenes.set('loading');
     ox.loop.init();
 };

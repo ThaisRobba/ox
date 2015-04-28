@@ -2,8 +2,7 @@ var entities = require('./entitiesManager'),
     toDraw = entities.toDraw,
     toUpdate = entities.toUpdate,
     scenes = require('./scenesManager'),
-    context = require('./canvas'),
-    camera = require('./camera');
+    context = require('./canvas');
 
 module.exports = {
     speed: 1,
@@ -29,15 +28,12 @@ module.exports = {
 
     draw: function () {
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-        //    camera.start();
         if (scenes.current.draw) scenes.current.draw();
         for (var i = 0, len = toDraw.length; i < len; i++) {
             if (entities.current[toDraw[i]] !== undefined && entities.current[toDraw[i]].draw !== undefined) {
                 entities.current[toDraw[i]].draw();
             }
         }
-
-        //    context.restore();
     },
 
     update: function (dt) {

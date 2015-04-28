@@ -1,8 +1,8 @@
 module.exports = [
-  './images/coin.png',
-  './images/coin2.png',
-  './images/coinTwisted.png',
-  './images/pony.png',
+  './images/background.png',
+  './images/cursor.png',
+  './images/foreground.png',
+  './images/ox.png',
   './data/example.json',
-  './audio/the_heavy.mp3'
+  './audio/ox.mp3'
 ];

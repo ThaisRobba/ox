@@ -1,52 +1,50 @@
 module.exports = {
     init: function () {
-        this.sprite2 = ox.spawn('sprite', {
-            source: 'coin2.png',
-            animation: 'spin',
-            animations: {
-                spin: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-                idle: [8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4, 8, 4]
-            },
-            height: 40,
-            frameRate: 1,
-            width: 44
+        this.background1 = ox.spawn('sprite', {
+            source: 'background.png'
         });
 
-        this.sprite3 = ox.spawn('sprite', {
-            source: 'pony.png',
-            x: 0,
-            y: 100
+        this.background2 = ox.spawn('sprite', {
+            source: 'background.png',
+            x: 640
         });
 
-        this.sprite4 = ox.spawn('sprite', {
-            source: 'pony.png',
-            x: 100,
-            y: 100
+        this.ox = ox.spawn('sprite', {
+            source: 'ox.png',
+            x: ox.canvas.width / 2,
+            y: 234,
+            width: 56,
+            animation: 'walking',
+            frameRate: 1
         });
 
-        this.sprite4 = ox.spawn('sprite', {
-            source: 'pony.png',
-            x: 200,
-            y: 100
+        this.foreground1 = ox.spawn('sprite', {
+            source: 'foreground.png'
         });
 
-        ox.spawn('timer', {
-            target: 1000,
-            callback: function (value) {
-                console.log(value);
-                this.sprite4.y += -10;
-                if (this.sprite4.y < 0) this.sprite4.y = 200;
-                //                ox.scenes.set('maino');
-            },
-            context: this
+        this.foreground2 = ox.spawn('sprite', {
+            source: 'foreground.png',
+            x: 640
+        });
+
+        this.cursor = ox.spawn('sprite', {
+            source: 'cursor.png'
         });
     },
 
     update: function (dt) {
-        //        this.sprite2.x = ox.mouse.x;
-        //        this.sprite2.y = ox.mouse.y;
+        this.cursor.x = ox.mouse.x;
+        this.cursor.y = ox.mouse.y;
+        this.scroll(this.background1, dt);
+        this.scroll(this.background2, dt);
+        this.scroll(this.foreground1, dt);
+        this.scroll(this.foreground2, dt);
+    },
 
-        //        ox.camera.set(ox.mouse.x, ox.mouse.y);
+    scroll: function (image, dt) {
+        var width = ox.data.example.backgroundWidth;
+        image.x -= dt * 20;
+        if (image.x < -width) image.x = width;
     },
 
     keyDown: function (key) {
@@ -62,10 +60,11 @@ module.exports = {
     },
 
     mouseDown: function (button) {
-        console.log("Clicked at: " + ox.mouse.x + ", " + ox.mouse.y + " with the " + button + " button.");
+        ox.audio['ox.mp3'].play();
+        console.log("Clicked: " + ox.mouse.x + ", " + ox.mouse.y + " with " + button + " button.");
     },
 
     mouseUp: function (button) {
-        console.log("Released at: " + ox.mouse.x + ", " + ox.mouse.y + " with the " + button + " button.");
+        console.log("Released: " + ox.mouse.x + ", " + ox.mouse.y + " with " + button + " button.");
     }
 };
