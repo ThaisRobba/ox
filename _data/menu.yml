@@ -6,8 +6,6 @@
   sub:
     - title: Installation
       url: /docs/setup/install.html
-    - title: Configuration
-      url: /docs/setup/configure.html
     - title: Running
       url: /docs/setup/running.html
 

@@ -3,21 +3,27 @@
 @import "footer.less";
 @import "highlight.less";
 @import "header.less";
-@import "navbar.less";
-@link: #1e6bb8;
-@link-hover: @link + #111;
-@body: #606c71;
+@import "sidebar.less";
+@import "home.less";
+
+@link: #E0ABFF;
+@link-hover: @link - #666;
+
 * {
   box-sizing: border-box;
 }
 
+body, html {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
 body {
-  padding: 0;
-  margin: 0;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: @body;
+  color: #606c71;
 }
 
 a {
@@ -26,5 +32,6 @@ a {
 }
 
 a:hover {
-  color: @link-hover;
+  color: @link-hover;  text-decoration: none;
+
 }

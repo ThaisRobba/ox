@@ -2,7 +2,7 @@
 title: ox - 2d canvas game framework
 email: ottorobba@gmail.com
 author: Otto Robba
-description: "Educational blog on game design and development, including topics like programming, tools, workflow and techniques."
+description: "Minimalist 2D game framework made for the web with a strong entity system and modular design. Documentation available and expanding!"
 url: "http://ottorobba.github.io/ox"
 baseurl: "http://ottorobba.github.io/ox"
 google_analytics: UA-55865997-2

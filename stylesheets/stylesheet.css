@@ -162,7 +162,7 @@
 @media screen and (min-width: 64em) {
   .main-content {
     max-width: 64rem;
-    padding: 2rem 6rem 2rem 0;
+    padding: 0rem 6rem 2rem 0;
     margin: 0 auto;
     font-size: 1.1rem;
     float: left;
@@ -208,8 +208,8 @@
   clear: both;
   padding-top: 2rem;
   margin: 2rem 0;
-  border-top: dashed 1px #eff0f1;
-  width: 80%;
+  border-top: dotted 1px rgba(239, 240, 241, 0.38);
+  text-align: center;
 }
 .site-footer-owner {
   display: block;
@@ -315,7 +315,7 @@
 .sidebar {
   overflow: hidden;
   float: left;
-  margin: 32px 16px 0 16px;
+  margin: 24px 16px 0 16px;
 }
 .sidebar ul,
 .sidebar ul li a {
@@ -361,21 +361,44 @@
     margin: 0;
   }
 }
+.canvas {
+  position: absolute;
+  top: 5px;
+  left: 42px;
+}
+.centered {
+  position: relative;
+  width: 641px;
+  margin: auto;
+}
+.cellphone {
+  position: relative;
+  width: 641px;
+  height: 329px;
+  background-image: url("../images/home_phone.png");
+  margin: auto;
+  background-size: 100% auto;
+}
 * {
   box-sizing: border-box;
 }
-body {
-  padding: 0;
+body,
+html {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #606c71;
 }
 a {
-  color: #1e6bb8;
+  color: #e0abff;
   text-decoration: none;
 }
 a:hover {
-  color: #2f7cc9;
+  color: #7a4599;
+  text-decoration: none;
 }
