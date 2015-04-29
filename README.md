@@ -29,26 +29,13 @@ Upon cloning this repo (or downloading it), you should have a basic skeleton for
 
 Clone this repo, install npm, Browserify and BrowserSync.
 
-### Loading assets
+### Automation
 
-Within the src folder, open assets.js. You will see an object literal containing three arrays: one for png images, one for json data files and one for audio files.
-
-    module.exports = {
-      //load player.png and add it to ox.images
-      images: ['player'],
-      
-      //load weapons.json and add it to ox.data
-      data: ['weapons'],
-      
-      //load powerup.mp3 and add it to ox.audio
-      audio: ['powerup']
-    }
-
-Easy peasy!
+cd to the folder, run `npm start`, there you go :)
 
 ### Using assets
 
-Ok, so you got your images loaded. Now let's create a new entity for the player. Open src/entities.js, you will see a similar pattern from the assets. Add a property called player and have it require player.js, like this:
+Let's create a new entity for the player. Open src/entities.js, you will see a similar pattern from the assets. Add a property called player and have it require player.js, like this:
 
     module.exports = {
       player: require('./entities/player.js')
@@ -99,7 +86,6 @@ Dt is short for delta time. It allows your game to run exactly the same in diffe
 ### Roadmap
 
 - Special UI entity
-- Input (mouse, touch, keyboard)
 - Tweening
 - Particles
 - Pre-Rendering
