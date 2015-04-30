@@ -8,6 +8,8 @@
       url: /docs/setup/install.html
     - title: Running
       url: /docs/setup/running.html
+    - title: Deploying
+      url: /docs/setup/deploying.html
 
 - title: Assets
   url: /docs/assets/overview.html
