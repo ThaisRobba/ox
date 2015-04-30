@@ -14,7 +14,6 @@ window.onload = function () {
         preloader: require('./loader'),
         spawn: require('./entitiesManager').spawn
     };
-    ox.mouse.init();
     ox.scenes.set('loading');
     ox.loop.init();
 };

@@ -4,21 +4,10 @@ module.exports = {
     x: 0,
     y: 0,
     isDown: false,
-    offset: {},
-    init: function () {
-        if (ox.canvas.offsetParent) {
-            this.offset.x = ox.canvas.offsetParent.offsetLeft + ox.canvas.offsetLeft;
-            this.offset.y = ox.canvas.offsetParent.offsetTop + ox.canvas.offsetTop;
-        } else {
-            this.offset.x = ox.canvas.offsetLeft;
-            this.offset.y = ox.canvas.offsetTop;
-        }
-    },
-
     onMove: function (e) {
-
-        ox.mouse.x = e.clientX - this.offset.x;
-        ox.mouse.y = e.clientY - this.offset.y;
+        this.offset = ox.canvas.getBoundingClientRect();
+        ox.mouse.x = e.clientX - this.offset.left;
+        ox.mouse.y = e.clientY - this.offset.top;
     },
 
     onUp: function (e) {
