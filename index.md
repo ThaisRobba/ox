@@ -11,8 +11,15 @@ title:
 - Spritesheet animation support
 - Save game support
 - Automated tools for development
+- Tiny! Weighting in at **3.8** kbytes gzipped.
 
 ### Changelog:
+
+Version `0.2.1`
+
+- Fixes mouse position
+- Fixes load error in Chrome
+- Fixes browsers sometimes needing to refresh before loading
 
 Version `0.2.0` - "Green Pastures"
 
