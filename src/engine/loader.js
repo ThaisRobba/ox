@@ -2,7 +2,6 @@ module.exports = {
     images: {},
     data: {},
     audio: {},
-    assetsToLoad: 0,
 
     loadImage: function (path) {
         var name = path.slice(9, path.length);
@@ -33,7 +32,7 @@ module.exports = {
     },
 
     load: function (list) {
-        this.assetsToLoad += list.length;
+        this.assetsToLoad = list.length;
 
         for (var i = 0; i < list.length; i++) {
             if (list[i].indexOf('./images') > -1) {
