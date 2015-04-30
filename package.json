@@ -1,6 +1,6 @@
 {
     "name": "ox2d",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "A 2D canvas game framework with a tiny size but a big heart.",
     "main": "src/engine/core.js",
     "scripts": {
