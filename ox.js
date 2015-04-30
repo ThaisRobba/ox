@@ -260,7 +260,6 @@ module.exports = {
     images: {},
     data: {},
     audio: {},
-    assetsToLoad: 0,
 
     loadImage: function (path) {
         var name = path.slice(9, path.length);
@@ -291,7 +290,7 @@ module.exports = {
     },
 
     load: function (list) {
-        this.assetsToLoad += list.length;
+        this.assetsToLoad = list.length;
 
         for (var i = 0; i < list.length; i++) {
             if (list[i].indexOf('./images') > -1) {
@@ -347,6 +346,7 @@ module.exports = {
         2: "right"
     }
 };
+
 },{"./scenesManager":10}],10:[function(require,module,exports){
 var clearEntities = require('./entitiesManager').clear,
     list = require('../scenes.js');
@@ -563,10 +563,10 @@ module.exports = {
     },
 
     update: function () {
-        if (ox.preloader.assetsToLoad === 0) ox.scenes.set('main');
+        if (this.loaded) ox.scenes.set('main');
+        if (ox.preloader.assetsToLoad === 0) this.loaded = true;
     }
 };
-
 },{"../assets":1}],18:[function(require,module,exports){
 module.exports = {
     init: function () {
