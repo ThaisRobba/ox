@@ -25,6 +25,8 @@ var drawSprite = require('./drawSprite'),
         var x = 0,
             y = 0;
         this.frames = [[0, 0]];
+        if (this.sourceHeight > this.height ||
+            this.sourceWidth > this.width) return;
 
         for (var i = 1; i < this.sourceHeight / this.height * this.sourceWidth / this.width; i++) {
             if (x < this.sourceWidth / this.width - 1) {

@@ -3,8 +3,8 @@ var drawSprite = require('./sprite/drawSprite'),
 
 module.exports = {
     init: function () {
-        this.sourceWidth = ox.images[this.source].width;
-        this.sourceHeight = ox.images[this.source].height;
+        this.sourceWidth = ox.images[this.source].width || 1;
+        this.sourceHeight = ox.images[this.source].height || 1;
         this.width = this.width || this.sourceWidth;
         this.height = this.height || this.sourceHeight;
         this.x = this.x || 0;
