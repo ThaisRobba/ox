@@ -29,7 +29,9 @@ Upon cloning this repo (or downloading it), you should have a basic skeleton for
 
 ## Getting started:
 
-Cd to the folder you extracted and run `npm install`. Then just run `npm start`. Now just start developing! :D
+[Download the framework](https://github.com/OttoRobba/ox/archive/v0.2.1.zip) with the basic template, then cd to the folder you extracted and run `npm install`. Then just run `npm start`. Now just start developing! :D
+
+**Note: This branch is constantly modified, use the [release channel](https://github.com/OttoRobba/ox/releases) for stable releases**
 
 ### Roadmap
 
