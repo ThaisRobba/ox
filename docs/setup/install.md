@@ -3,8 +3,6 @@ layout: documentation
 title: "Installation"
 ---
 
-
-
 ###1. Install Node.js
 
 Ox requires nodejs to be installed so that it can run the automation tools.

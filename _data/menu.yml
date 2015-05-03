@@ -94,3 +94,9 @@
           url: /docs/hooks/init.html
         - title: '.update(dt)'
           url: /docs/hooks/update.html
+
+- title: Mouse
+  url: /docs/mouse/overview.html
+
+- title: Keyboard
+  url: #
