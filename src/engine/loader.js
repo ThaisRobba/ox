@@ -4,9 +4,12 @@ module.exports = {
     audio: {},
 
     loadImage: function (path) {
-        var name = path.slice(9, path.length);
+        var name = path.slice(9, path.length),
+            self = this;
         this.images[name] = new Image();
-        this.images[name].onload = this.assetsToLoad--;
+        this.images[name].onload = function() {
+            self.assetsToLoad--;
+        };
         this.images[name].src = path;
     },
 
@@ -26,9 +29,12 @@ module.exports = {
     },
 
     loadAudio: function (path) {
-        var name = path.slice(8, path.length);
+        var name = path.slice(8, path.length),
+            self = this;
         this.audio[name] = new Audio(path);
-        this.audio[name].oncanplaythrough = this.assetsToLoad--;
+        this.audio[name].oncanplaythrough = function() {
+            self.assetsToLoad--;
+        };
     },
 
     load: function (list) {
@@ -43,5 +49,6 @@ module.exports = {
                 this.loadAudio(list[i]);
             }
         }
+
     }
 };
