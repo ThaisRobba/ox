@@ -1,3 +1,7 @@
+# Disclaimer
+
+I'm not working on this anymore. Feel free to do with it as you will!
+
 # ox
 Ox is a tiny, opinionated-yet-open 2D game framework for the web. It offers a rigid structure that facilitates development. Its goals are to be easy to learn, modular and lightweight.
 
@@ -49,7 +53,3 @@ You can read more information on the [documentation](http://ox2d.com/docs).
 - Less dependencies
 - Powerful plugin architecture
 - Video documentation
-
-### Disclaimer
-
-This is very much a work in progress and while it is stable enough it should not be used in production. That said, it is open source so go crazy.
